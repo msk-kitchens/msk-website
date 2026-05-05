@@ -4,134 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>الأسلوب العصري | خامات أوروبية فاخرة</title>
+<title>الأسلوب العصري | مطابخ مودرن</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-margin:0;
-font-family:'Cairo',sans-serif;
-background:#0a0a0a;
-color:#fff;
-direction:rtl;
-}
-
-/* HEADER */
-.header{
-background:#111;
-padding:20px;
-text-align:center;
-}
-
-.header h1{margin:0;}
-
-/* HERO */
-.hero{
-text-align:center;
-padding:40px;
-background:#000;
-}
-
+body{margin:0;font-family:'Cairo',sans-serif;background:#0a0a0a;color:#fff;direction:rtl;}
+.header{text-align:center;padding:20px;background:#111;}
+.hero{text-align:center;padding:40px;background:#000;}
 .hero h2{font-size:30px;}
 .hero p{color:#ccc;}
-
-/* BUTTON */
-.btn{
-padding:10px 20px;
-border-radius:6px;
-text-decoration:none;
-margin:5px;
-display:inline-block;
-}
-
+.btn{padding:10px 20px;border-radius:6px;text-decoration:none;margin:5px;display:inline-block;}
 .gold{background:#c9a96e;color:#000;}
 .whatsapp{background:#25D366;color:#fff;}
-
-/* SECTION */
-.section{
-padding:40px 20px;
-text-align:center;
-}
-
-/* GRID */
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-padding:20px;
-}
-
-.card{
-background:#111;
-border-radius:10px;
-overflow:hidden;
-border:1px solid #333;
-cursor:pointer;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-border-color:#c9a96e;
-}
-
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.card h3{
-padding:10px;
-}
-
-/* PRODUCT PAGE */
-.product-page{
-display:none;
-padding:20px;
-text-align:center;
-}
-
-.product-page img{
-width:100%;
-max-width:400px;
-border-radius:10px;
-}
-
-/* SEARCH */
-input{
-padding:10px;
-width:80%;
-max-width:400px;
-border-radius:6px;
-border:none;
-margin:10px;
-}
-
-/* FILTER */
-.filters button{
-margin:5px;
-padding:8px;
-border:none;
-background:#c9a96e;
-cursor:pointer;
-}
-
-/* MAP */
-iframe{
-width:100%;
-height:300px;
-border-radius:10px;
-}
-
-/* BACK */
-.back{
-cursor:pointer;
-color:#c9a96e;
-display:block;
-margin-bottom:10px;
-}
+.section{padding:40px 20px;text-align:center;}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;padding:20px;}
+.card{background:#111;border-radius:10px;overflow:hidden;border:1px solid #333;cursor:pointer;transition:.3s;}
+.card:hover{transform:translateY(-5px);border-color:#c9a96e;}
+.card img{width:100%;height:200px;object-fit:cover;}
+.card h3{padding:10px;}
+.product-page{display:none;text-align:center;padding:20px;}
+.product-page img{max-width:400px;width:100%;border-radius:10px;}
+.back{cursor:pointer;color:#c9a96e;}
+iframe{width:100%;height:300px;border-radius:10px;border:none;}
 </style>
 
 </head>
@@ -145,44 +40,34 @@ margin-bottom:10px;
 
 <!-- HERO -->
 <div class="hero">
-<h2>نصمم لك الأفضل… بخامات تدوم</h2>
-<p>خامات أوروبية - تصميمات عصرية - أسعار من المصنع</p>
+<h2>تصميمات مودرن تناسب كل المساحات</h2>
+<p>مطابخ - دريسنج - صاج - خشب - هجين</p>
 
 <a class="btn gold" href="#catalog">تصفح الكتالوج</a>
-<a class="btn whatsapp" href="https://wa.me/966540220939">واتساب</a>
+
+<a class="btn whatsapp" href="https://wa.me/966540220939">
+واتساب
+</a>
+
+<a class="btn" style="background:#000;color:#fff;border:1px solid #fff"
+href="https://www.tiktok.com/@m0540220939?_r=1&_t=ZS-966OfIhG5aB">
+تيك توك
+</a>
 </div>
 
-<!-- ABOUT -->
-<div class="section">
-<h2>من نحن</h2>
-<p>
-نقدم أفضل الخامات الأوروبية بتصاميم عصرية تناسب جميع المساحات،
-مع استغلال ذكي وسرعة تنفيذ وأسعار مباشرة من المصنع.
-</p>
-</div>
-
-<!-- SEARCH + FILTER -->
+<!-- CATALOG -->
 <div class="section" id="catalog">
-<h2>الكتالوج</h2>
-
-<input type="text" id="search" placeholder="ابحث..." onkeyup="search()">
-
-<div class="filters">
-<button onclick="filter('all')">الكل</button>
-<button onclick="filter('wood')">أخشاب</button>
-<button onclick="filter('acc')">إكسسوارات</button>
-</div>
+<h2>نماذج من أعمالنا</h2>
 </div>
 
-<!-- LIST -->
 <div class="products" id="list"></div>
 
-<!-- PRODUCT -->
+<!-- PRODUCT PAGE -->
 <div class="product-page" id="productPage">
 <span class="back" onclick="goBack()">⬅ رجوع</span>
 <img id="pImg">
 <h2 id="pTitle"></h2>
-<p>خامة أوروبية عالية الجودة - تصميم عصري - مناسب لكل المساحات</p>
+<p>خامات أوروبية عالية الجودة - تصميم عصري - مناسب لكل المساحات</p>
 <a id="pBtn" class="btn whatsapp">استفسار واتساب</a>
 </div>
 
@@ -191,17 +76,17 @@ margin-bottom:10px;
 <h2>آراء العملاء</h2>
 
 <div class="products">
-<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>شغل ممتاز</p></div>
-<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>جودة عالية</p></div>
-<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>أسعار ممتازة</p></div>
+<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>شغل ممتاز وخامات عالية</p></div>
+<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>تنفيذ سريع جداً</p></div>
+<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>أفضل جودة مقابل السعر</p></div>
 </div>
 
 <a class="btn gold" href="https://maps.app.goo.gl/GZgfp78RDPaQT3xC8">
-شاهد تقييماتنا
+شاهد تقييماتنا على Google
 </a>
 </div>
 
-<!-- MAP -->
+<!-- GOOGLE MAP -->
 <div class="section">
 <h2>موقعنا</h2>
 <iframe src="https://www.google.com/maps?q=جدة+عسفان&output=embed"></iframe>
@@ -212,22 +97,24 @@ margin-bottom:10px;
 <h2>تواصل معنا</h2>
 <p>📞 0540220939</p>
 <p>📧 msk.kitchens424@gmail.com</p>
-<a class="btn whatsapp" href="https://wa.me/966540220939">احصل على عرض سعر</a>
+
+<a class="btn whatsapp" href="https://wa.me/966540220939">
+اطلب عرض سعر الآن
+</a>
 </div>
 
 <script>
 
-let items=[];
+let items = [
 
-/* خشب */
-for(let i=1;i<=20;i++){
-items.push({name:"Wood "+i,type:"wood",img:"wood"+i+".jpg"});
-}
+{ name:"مطبخ مودرن فاخر", img:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c" },
+{ name:"مطبخ صغير ذكي", img:"https://images.unsplash.com/photo-1600566752225-2f1bb8db63b3" },
+{ name:"مطبخ صاج حديث", img:"https://images.unsplash.com/photo-1556912167-f556f1f39fdf" },
+{ name:"دريسنج روم مودرن", img:"https://images.unsplash.com/photo-1582582494700-6d79dfb6a8c0" },
+{ name:"دولاب عصري", img:"https://images.unsplash.com/photo-1598300053653-58b8e7b61b87" },
+{ name:"مطبخ مفتوح مودرن", img:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" }
 
-/* اكسسوارات */
-for(let i=1;i<=10;i++){
-items.push({name:"Accessory "+i,type:"acc",img:"acc"+i+".jpg"});
-}
+];
 
 function show(){
 let html="";
@@ -236,8 +123,7 @@ html+=`
 <div class="card" onclick="openProduct(${i})">
 <img src="${item.img}">
 <h3>${item.name}</h3>
-</div>
-`;
+</div>`;
 });
 document.getElementById("list").innerHTML=html;
 }
@@ -257,31 +143,6 @@ document.getElementById("pBtn").href=
 function goBack(){
 document.getElementById("list").style.display="grid";
 document.getElementById("productPage").style.display="none";
-}
-
-/* search */
-function search(){
-let v=document.getElementById("search").value.toLowerCase();
-let filtered=items.filter(i=>i.name.toLowerCase().includes(v));
-display(filtered);
-}
-
-function filter(t){
-if(t==="all"){show();return;}
-display(items.filter(i=>i.type===t));
-}
-
-function display(list){
-let html="";
-list.forEach((item,i)=>{
-html+=`
-<div class="card" onclick="openProduct(${i})">
-<img src="${item.img}">
-<h3>${item.name}</h3>
-</div>
-`;
-});
-document.getElementById("list").innerHTML=html;
 }
 
 </script>
