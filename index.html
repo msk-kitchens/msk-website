@@ -17,18 +17,23 @@ color:#fff;
 direction:rtl;
 }
 
-/* HERO */
-.hero{
-height:70vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+/* HEADER */
+.header{
 background:#111;
 padding:20px;
+text-align:center;
 }
 
-.hero h1{font-size:45px;}
+.header h1{margin:0;}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:40px;
+background:#000;
+}
+
+.hero h2{font-size:30px;}
 .hero p{color:#ccc;}
 
 /* BUTTON */
@@ -49,25 +54,6 @@ padding:40px 20px;
 text-align:center;
 }
 
-/* SEARCH */
-input{
-padding:10px;
-width:80%;
-max-width:400px;
-border-radius:6px;
-border:none;
-margin:15px;
-}
-
-/* FILTER */
-.filters button{
-margin:5px;
-padding:8px 15px;
-border:none;
-background:#c9a96e;
-cursor:pointer;
-}
-
 /* GRID */
 .products{
 display:grid;
@@ -76,12 +62,12 @@ gap:15px;
 padding:20px;
 }
 
-/* CARD */
 .card{
 background:#111;
 border-radius:10px;
 overflow:hidden;
 border:1px solid #333;
+cursor:pointer;
 transition:.3s;
 }
 
@@ -96,8 +82,40 @@ height:200px;
 object-fit:cover;
 }
 
-.card-content{
+.card h3{
 padding:10px;
+}
+
+/* PRODUCT PAGE */
+.product-page{
+display:none;
+padding:20px;
+text-align:center;
+}
+
+.product-page img{
+width:100%;
+max-width:400px;
+border-radius:10px;
+}
+
+/* SEARCH */
+input{
+padding:10px;
+width:80%;
+max-width:400px;
+border-radius:6px;
+border:none;
+margin:10px;
+}
+
+/* FILTER */
+.filters button{
+margin:5px;
+padding:8px;
+border:none;
+background:#c9a96e;
+cursor:pointer;
 }
 
 /* MAP */
@@ -107,16 +125,12 @@ height:300px;
 border-radius:10px;
 }
 
-/* FLOAT */
-.float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-color:#fff;
-text-decoration:none;
+/* BACK */
+.back{
+cursor:pointer;
+color:#c9a96e;
+display:block;
+margin-bottom:10px;
 }
 </style>
 
@@ -124,22 +138,25 @@ text-decoration:none;
 
 <body>
 
+<!-- HEADER -->
+<div class="header">
+<h1>الأسلوب العصري</h1>
+</div>
+
 <!-- HERO -->
 <div class="hero">
-<div>
-<h1>الأسلوب العصري</h1>
+<h2>نصمم لك الأفضل… بخامات تدوم</h2>
 <p>خامات أوروبية - تصميمات عصرية - أسعار من المصنع</p>
 
 <a class="btn gold" href="#catalog">تصفح الكتالوج</a>
 <a class="btn whatsapp" href="https://wa.me/966540220939">واتساب</a>
-</div>
 </div>
 
 <!-- ABOUT -->
 <div class="section">
 <h2>من نحن</h2>
 <p>
-نقدم خامات أوروبية عالية الجودة بتصاميم تناسب جميع المساحات،
+نقدم أفضل الخامات الأوروبية بتصاميم عصرية تناسب جميع المساحات،
 مع استغلال ذكي وسرعة تنفيذ وأسعار مباشرة من المصنع.
 </p>
 </div>
@@ -148,138 +165,123 @@ text-decoration:none;
 <div class="section" id="catalog">
 <h2>الكتالوج</h2>
 
-<input type="text" id="search" placeholder="ابحث عن منتج..." onkeyup="search()">
+<input type="text" id="search" placeholder="ابحث..." onkeyup="search()">
 
 <div class="filters">
 <button onclick="filter('all')">الكل</button>
 <button onclick="filter('wood')">أخشاب</button>
 <button onclick="filter('acc')">إكسسوارات</button>
 </div>
-
 </div>
 
-<!-- PRODUCTS -->
-<div class="products" id="products"></div>
+<!-- LIST -->
+<div class="products" id="list"></div>
+
+<!-- PRODUCT -->
+<div class="product-page" id="productPage">
+<span class="back" onclick="goBack()">⬅ رجوع</span>
+<img id="pImg">
+<h2 id="pTitle"></h2>
+<p>خامة أوروبية عالية الجودة - تصميم عصري - مناسب لكل المساحات</p>
+<a id="pBtn" class="btn whatsapp">استفسار واتساب</a>
+</div>
 
 <!-- REVIEWS -->
 <div class="section">
 <h2>آراء العملاء</h2>
 
 <div class="products">
-
-<div class="card">
-<div class="card-content">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>شغل ممتاز وخامات عالية جداً</p>
+<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>شغل ممتاز</p></div>
+<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>جودة عالية</p></div>
+<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>أسعار ممتازة</p></div>
 </div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>التنفيذ سريع والأسعار مناسبة جداً</p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>أفضل مكان تعاملت معاه في الخامات</p>
-</div>
-</div>
-
-</div>
-
-<br>
 
 <a class="btn gold" href="https://maps.app.goo.gl/GZgfp78RDPaQT3xC8">
-شاهد تقييماتنا على Google
+شاهد تقييماتنا
 </a>
-
 </div>
 
 <!-- MAP -->
 <div class="section">
 <h2>موقعنا</h2>
-
 <iframe src="https://www.google.com/maps?q=جدة+عسفان&output=embed"></iframe>
-
 </div>
 
 <!-- CONTACT -->
 <div class="section">
 <h2>تواصل معنا</h2>
-
 <p>📞 0540220939</p>
 <p>📧 msk.kitchens424@gmail.com</p>
-
-<a class="btn whatsapp" href="https://wa.me/966540220939">
-اطلب عرض سعر الآن
-</a>
-
+<a class="btn whatsapp" href="https://wa.me/966540220939">احصل على عرض سعر</a>
 </div>
-
-<!-- FOOTER -->
-<div class="section">
-<p>© جميع الحقوق محفوظة - الأسلوب العصري</p>
-</div>
-
-<!-- FLOAT -->
-<a href="https://wa.me/966540220939?text=السلام عليكم، عايز أعرف الأسعار"
-class="float">💬</a>
 
 <script>
 
 let items=[];
 
 /* خشب */
-for(let i=1;i<=30;i++){
-items.push({
-name:"Wood "+i,
-type:"wood",
-img:"wood"+i+".jpg"
-});
+for(let i=1;i<=20;i++){
+items.push({name:"Wood "+i,type:"wood",img:"wood"+i+".jpg"});
 }
 
 /* اكسسوارات */
-for(let i=1;i<=20;i++){
-items.push({
-name:"Accessory "+i,
-type:"acc",
-img:"acc"+i+".jpg"
+for(let i=1;i<=10;i++){
+items.push({name:"Accessory "+i,type:"acc",img:"acc"+i+".jpg"});
+}
+
+function show(){
+let html="";
+items.forEach((item,i)=>{
+html+=`
+<div class="card" onclick="openProduct(${i})">
+<img src="${item.img}">
+<h3>${item.name}</h3>
+</div>
+`;
 });
+document.getElementById("list").innerHTML=html;
+}
+
+show();
+
+function openProduct(i){
+document.getElementById("list").style.display="none";
+document.getElementById("productPage").style.display="block";
+
+document.getElementById("pImg").src=items[i].img;
+document.getElementById("pTitle").innerText=items[i].name;
+document.getElementById("pBtn").href=
+"https://wa.me/966540220939?text=استفسار عن "+items[i].name;
+}
+
+function goBack(){
+document.getElementById("list").style.display="grid";
+document.getElementById("productPage").style.display="none";
+}
+
+/* search */
+function search(){
+let v=document.getElementById("search").value.toLowerCase();
+let filtered=items.filter(i=>i.name.toLowerCase().includes(v));
+display(filtered);
+}
+
+function filter(t){
+if(t==="all"){show();return;}
+display(items.filter(i=>i.type===t));
 }
 
 function display(list){
 let html="";
-list.forEach(item=>{
+list.forEach((item,i)=>{
 html+=`
-<div class="card ${item.type}">
+<div class="card" onclick="openProduct(${i})">
 <img src="${item.img}">
-<div class="card-content">
 <h3>${item.name}</h3>
-<a class="btn whatsapp" href="https://wa.me/966540220939?text=استفسار عن ${item.name}">
-استفسار
-</a>
-</div>
 </div>
 `;
 });
-document.getElementById("products").innerHTML=html;
-}
-
-display(items);
-
-/* البحث */
-function search(){
-let v=document.getElementById("search").value.toLowerCase();
-display(items.filter(i=>i.name.toLowerCase().includes(v)));
-}
-
-/* الفلترة */
-function filter(t){
-if(t==="all"){display(items);return;}
-display(items.filter(i=>i.type===t));
+document.getElementById("list").innerHTML=html;
 }
 
 </script>
