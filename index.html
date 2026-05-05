@@ -4,143 +4,250 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>مطابخ في جدة | تفصيل مطابخ وخزائن - MSK Kitchens</title>
+<title>الأسلوب العصري | خامات خشب أوروبية فاخرة</title>
 
-<meta name="description" content="تفصيل مطابخ وخزائن عصرية في جدة - خشب وألمنيوم وصاج - تواصل الآن">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
 body {
 margin:0;
-font-family:Arial;
+font-family:'Cairo',sans-serif;
+background:#0a0a0a;
+color:#fff;
 direction:rtl;
-background:#f5f5f5;
 }
 
+/* HERO */
 .hero {
-background:linear-gradient(to left,#000,#444);
-color:#fff;
+height:100vh;
+background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:40px 20px;
-}
-
-.hero h1 {margin:0;font-size:28px;}
-
-.btn {
-display:inline-block;
-margin:8px;
-padding:12px 20px;
-border-radius:8px;
-text-decoration:none;
-color:#fff;
-font-weight:bold;
-}
-
-.whatsapp {background:#25D366;}
-.call {background:#007BFF;}
-.tiktok {background:#000;}
-
-.section {
 padding:20px;
 }
 
-.section h2 {
+.hero h1 {
+font-size:45px;
+}
+
+.hero p {
+color:#ccc;
+}
+
+/* BUTTONS */
+.btn {
+display:inline-block;
+margin:10px;
+padding:12px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.gold {
+background:linear-gradient(45deg,#c9a96e,#f1d28a);
+color:#000;
+}
+
+.whatsapp {
+background:#25D366;
+color:#fff;
+}
+
+.call {
+background:#007BFF;
+color:#fff;
+}
+
+/* SECTION */
+.section {
+padding:50px 20px;
 text-align:center;
 }
 
+/* CARDS */
 .card {
-background:#fff;
-margin:10px 0;
-padding:15px;
+background:#111;
+padding:20px;
+margin:10px;
 border-radius:10px;
-text-align:center;
+border:1px solid #333;
 }
 
-.gallery img {
+/* PRODUCTS */
+.products {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.products img {
 width:100%;
 border-radius:10px;
-margin:10px 0;
 }
 
+/* MAP */
 iframe {
 width:100%;
-height:250px;
-border:0;
+height:300px;
 border-radius:10px;
 }
 
-.footer {
-background:#000;
+/* FLOAT BUTTON */
+.float {
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
 color:#fff;
-text-align:center;
 padding:15px;
+border-radius:50%;
+font-size:20px;
+z-index:999;
+text-decoration:none;
+}
+
+/* POPUP */
+.popup {
+position:fixed;
+bottom:80px;
+right:20px;
+background:#111;
+padding:20px;
+border-radius:10px;
+border:1px solid #444;
+display:none;
+width:250px;
+}
+
+.popup button {
+margin-top:10px;
+padding:8px;
+background:#c9a96e;
+border:none;
+cursor:pointer;
 }
 </style>
+
 </head>
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
-<h1>MSK Kitchens</h1>
-<p>نصمم مطبخك بأعلى جودة وبسعر مناسب - من المصنع للعميل</p>
+<div>
+<h1>نصمم لك الأفضل… بخامات تدوم</h1>
+<p>خامات أوروبية - تصميمات عصرية - أسعار من المصنع</p>
 
-<a class="btn whatsapp" href="https://wa.me/966540220939?text=السلام عليكم اريد تصميم مطبخ">اطلب عرض سعر الآن</a>
-
-<a class="btn call" href="tel:0540220939">اتصال مباشر</a>
-
-<a class="btn tiktok" href="https://www.tiktok.com/@m0540220939?_r=1&_t=ZS-966OfIhG5aB">تيك توك</a>
+<a class="btn gold" href="#products">تصفح المنتجات</a>
+<a class="btn whatsapp" href="https://wa.me/966540220939">واتساب</a>
+<a class="btn call" href="tel:0540220939">اتصال</a>
+</div>
 </div>
 
+<!-- ABOUT -->
 <div class="section">
-<h2>خدماتنا</h2>
-
-<div class="card">مطابخ خشب</div>
-<div class="card">مطابخ ألمنيوم</div>
-<div class="card">مطابخ صاج</div>
-<div class="card">هجين خشب + ألمنيوم</div>
-<div class="card">خزائن ملابس</div>
-<div class="card">دريسينج روم</div>
+<h2>من نحن</h2>
+<p>
+أهلاً بك في الأسلوب العصري ✨  
+نقدم خامات أوروبية فاخرة بتصاميم تناسب جميع المساحات، مع أفضل الأسعار وسرعة التنفيذ.
+</p>
 </div>
 
+<!-- FEATURES -->
 <div class="section">
-<h2>لماذا نحن؟</h2>
+<h2>لماذا نحن</h2>
 
-<div class="card">✔ تصميم مجاني مبدئي</div>
-<div class="card">✔ تنفيذ سريع</div>
-<div class="card">✔ أسعار مباشرة من المصنع</div>
+<div class="card">✔ جودة أوروبية عالية</div>
+<div class="card">✔ تصميمات عصرية</div>
+<div class="card">✔ أسعار من المصنع مباشرة</div>
+<div class="card">✔ سرعة تنفيذ</div>
+<div class="card">✔ استغلال ذكي للمساحات</div>
+
 </div>
 
-<div class="section gallery">
-<h2>أعمالنا</h2>
+<!-- PRODUCTS -->
+<div class="section" id="products">
+<h2>الألوان والخامات</h2>
 
-<img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77">
+<div class="products">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed">
+<h3>Charcoal Chestnut</h3>
+</div>
+
+<div class="card">
 <img src="https://images.unsplash.com/photo-1618220179428-22790b461013">
-<img src="https://images.unsplash.com/photo-1600607686527-6fb886090705">
+<h3>Mink Chestnut</h3>
 </div>
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600607686527-6fb886090705">
+<h3>Biscotti Oak</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77">
+<h3>Gold Oak</h3>
+</div>
+
+</div>
+</div>
+
+<!-- MAP -->
 <div class="section">
 <h2>موقعنا</h2>
 
-<!-- خريطة -->
 <iframe src="https://www.google.com/maps?q=جدة+عسفان&output=embed"></iframe>
 
-<!-- زر فتح الموقع الحقيقي -->
-<a class="btn call" href="https://maps.app.goo.gl/GZgfp78RDPaQT3xC8">
+<br><br>
+
+<a class="btn gold" href="https://maps.app.goo.gl/GZgfp78RDPaQT3xC8">
 فتح الموقع على جوجل ماب
 </a>
 
 </div>
 
+<!-- CONTACT -->
 <div class="section">
 <h2>تواصل معنا</h2>
 
-<div class="card">📞 0540220939</div>
-<div class="card">📧 msk.kitchens424@gmail.com</div>
-<div class="card">📍 جدة - عسفان</div>
+<p>📞 0540220939</p>
+<p>📧 msk.kitchens424@gmail.com</p>
+
+<a class="btn whatsapp" href="https://wa.me/966540220939">
+احصل على عرض سعر الآن
+</a>
+
 </div>
 
-<div class="footer">
-© MSK Kitchens - جميع الحقوق محفوظة
+<!-- FOOTER -->
+<div class="section">
+<p>© جميع الحقوق محفوظة - الأسلوب العصري</p>
 </div>
+
+<!-- FLOAT WHATSAPP -->
+<a href="https://wa.me/966540220939?text=السلام عليكم، عايز أعرف الأسعار وهل في عروض حالياً" class="float">💬</a>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+<p>أهلاً بك في الأسلوب العصري 👋  
+جاهز نساعدك تختار أفضل خامة بسعر المصنع 🔥</p>
+<button onclick="openWhats()">تواصل الآن</button>
+</div>
+
+<script>
+setTimeout(function(){
+document.getElementById("popup").style.display="block";
+},3000);
+
+function openWhats(){
+window.location.href="https://wa.me/966540220939?text=السلام عليكم، عايز استفسر عن الأسعار";
+}
+</script>
 
 </body>
 </html>
