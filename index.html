@@ -4,29 +4,119 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>الأسلوب العصري | مطابخ مودرن</title>
+<title>الأسلوب العصري | مطابخ ودريسنج فاخر</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:'Cairo',sans-serif;background:#0a0a0a;color:#fff;direction:rtl;}
-.header{text-align:center;padding:20px;background:#111;}
-.hero{text-align:center;padding:40px;background:#000;}
-.hero h2{font-size:30px;}
-.hero p{color:#ccc;}
-.btn{padding:10px 20px;border-radius:6px;text-decoration:none;margin:5px;display:inline-block;}
-.gold{background:#c9a96e;color:#000;}
-.whatsapp{background:#25D366;color:#fff;}
-.section{padding:40px 20px;text-align:center;}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;padding:20px;}
-.card{background:#111;border-radius:10px;overflow:hidden;border:1px solid #333;cursor:pointer;transition:.3s;}
-.card:hover{transform:translateY(-5px);border-color:#c9a96e;}
-.card img{width:100%;height:200px;object-fit:cover;}
-.card h3{padding:10px;}
-.product-page{display:none;text-align:center;padding:20px;}
-.product-page img{max-width:400px;width:100%;border-radius:10px;}
-.back{cursor:pointer;color:#c9a96e;}
-iframe{width:100%;height:300px;border-radius:10px;border:none;}
+:root{
+--gold:#c9a96e;
+--bg1:#0a0a0a;
+--bg2:#111;
+--card:#121212;
+--border:#2a2a2a;
+--text:#fff;
+--muted:#cfcfcf;
+--green:#25D366;
+}
+
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:'Cairo',sans-serif;
+color:var(--text);
+direction:rtl;
+background:
+radial-gradient(1200px 600px at 80% -10%, rgba(201,169,110,0.15), transparent 60%),
+radial-gradient(1000px 500px at -10% 10%, rgba(201,169,110,0.12), transparent 60%),
+linear-gradient(180deg,var(--bg1),var(--bg2));
+}
+
+/* HEADER */
+.header{
+position:sticky;top:0;z-index:10;
+backdrop-filter: blur(8px);
+background:rgba(17,17,17,0.7);
+border-bottom:1px solid var(--border);
+padding:14px 20px;text-align:center;
+}
+.header h1{margin:0;font-weight:700;letter-spacing:.5px}
+
+/* HERO */
+.hero{
+text-align:center;padding:60px 20px 40px;
+}
+.hero h2{font-size:32px;margin:0 0 10px}
+.hero p{color:var(--muted);margin:0 0 20px}
+
+/* BUTTONS */
+.btn{
+padding:10px 18px;border-radius:8px;text-decoration:none;margin:6px;display:inline-block;
+border:1px solid transparent;transition:.2s;
+}
+.gold{background:var(--gold);color:#000;}
+.whatsapp{background:var(--green);color:#fff;}
+.dark{background:#000;color:#fff;border:1px solid #fff;}
+.btn:hover{transform:translateY(-2px);opacity:.95}
+
+/* SECTION */
+.section{padding:40px 20px;text-align:center}
+.section h2{margin-bottom:10px}
+
+/* GRID */
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:16px;padding:10px 10px 20px;
+max-width:1200px;margin:auto;
+}
+
+.card{
+background:linear-gradient(180deg,#121212,#0e0e0e);
+border-radius:14px;
+overflow:hidden;
+border:1px solid var(--border);
+cursor:pointer;
+transition:.25s;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+.card:hover{
+transform:translateY(-6px);
+border-color:var(--gold);
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+.card img{
+width:100%;height:210px;object-fit:cover;
+filter:saturate(1.05) contrast(1.05);
+}
+.card h3{padding:12px;margin:0;font-size:16px}
+
+/* PRODUCT PAGE */
+.product-page{
+display:none;padding:20px;text-align:center;max-width:900px;margin:auto;
+}
+.product-page img{
+width:100%;max-width:520px;border-radius:14px;
+box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+.product-page p{color:var(--muted)}
+.back{
+cursor:pointer;color:var(--gold);display:inline-block;margin-bottom:10px;
+}
+
+/* REVIEWS */
+.review{
+padding:16px;border:1px solid var(--border);
+border-radius:12px;background:#111;
+}
+
+/* MAP */
+iframe{
+width:100%;height:300px;border:none;border-radius:14px;
+}
+
+/* FOOTER */
+.footer{padding:20px;color:#aaa;text-align:center}
 </style>
 
 </head>
@@ -40,16 +130,17 @@ iframe{width:100%;height:300px;border-radius:10px;border:none;}
 
 <!-- HERO -->
 <div class="hero">
-<h2>تصميمات مودرن تناسب كل المساحات</h2>
-<p>مطابخ - دريسنج - صاج - خشب - هجين</p>
+<h2>نصمم لك الأفضل… بخامات تدوم</h2>
+<p>مطابخ • دريسنج • صاج • خشب • هجين — تصميمات عصرية وأسعار من المصنع</p>
 
-<a class="btn gold" href="#catalog">تصفح الكتالوج</a>
+<a class="btn gold" href="#catalog">تصفح الموقع</a>
 
-<a class="btn whatsapp" href="https://wa.me/966540220939">
-واتساب
+<a class="btn whatsapp"
+href="https://wa.me/966540220939?text=السلام عليكم، عايز كتالوج الأعمال والصور">
+كتالوج واتساب
 </a>
 
-<a class="btn" style="background:#000;color:#fff;border:1px solid #fff"
+<a class="btn dark"
 href="https://www.tiktok.com/@m0540220939?_r=1&_t=ZS-966OfIhG5aB">
 تيك توك
 </a>
@@ -58,6 +149,7 @@ href="https://www.tiktok.com/@m0540220939?_r=1&_t=ZS-966OfIhG5aB">
 <!-- CATALOG -->
 <div class="section" id="catalog">
 <h2>نماذج من أعمالنا</h2>
+<p style="color:#bbb">اضغط على أي صورة لعرض التفاصيل والتواصل</p>
 </div>
 
 <div class="products" id="list"></div>
@@ -67,18 +159,17 @@ href="https://www.tiktok.com/@m0540220939?_r=1&_t=ZS-966OfIhG5aB">
 <span class="back" onclick="goBack()">⬅ رجوع</span>
 <img id="pImg">
 <h2 id="pTitle"></h2>
-<p>خامات أوروبية عالية الجودة - تصميم عصري - مناسب لكل المساحات</p>
+<p>خامات أوروبية عالية الجودة • تصميم عصري • استغلال ذكي للمساحات • تنفيذ سريع</p>
 <a id="pBtn" class="btn whatsapp">استفسار واتساب</a>
 </div>
 
 <!-- REVIEWS -->
 <div class="section">
 <h2>آراء العملاء</h2>
-
 <div class="products">
-<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>شغل ممتاز وخامات عالية</p></div>
-<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>تنفيذ سريع جداً</p></div>
-<div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>أفضل جودة مقابل السعر</p></div>
+<div class="review"><h3>⭐⭐⭐⭐⭐</h3><p>شغل ممتاز وخامات عالية جداً</p></div>
+<div class="review"><h3>⭐⭐⭐⭐⭐</h3><p>تنفيذ سريع والتعامل راقي</p></div>
+<div class="review"><h3>⭐⭐⭐⭐⭐</h3><p>أفضل جودة مقابل السعر</p></div>
 </div>
 
 <a class="btn gold" href="https://maps.app.goo.gl/GZgfp78RDPaQT3xC8">
@@ -86,7 +177,7 @@ href="https://www.tiktok.com/@m0540220939?_r=1&_t=ZS-966OfIhG5aB">
 </a>
 </div>
 
-<!-- GOOGLE MAP -->
+<!-- MAP -->
 <div class="section">
 <h2>موقعنا</h2>
 <iframe src="https://www.google.com/maps?q=جدة+عسفان&output=embed"></iframe>
@@ -98,21 +189,32 @@ href="https://www.tiktok.com/@m0540220939?_r=1&_t=ZS-966OfIhG5aB">
 <p>📞 0540220939</p>
 <p>📧 msk.kitchens424@gmail.com</p>
 
-<a class="btn whatsapp" href="https://wa.me/966540220939">
+<a class="btn whatsapp"
+href="https://wa.me/966540220939?text=السلام عليكم، عايز عرض سعر">
 اطلب عرض سعر الآن
 </a>
 </div>
 
+<div class="footer">
+© جميع الحقوق محفوظة - الأسلوب العصري
+</div>
+
 <script>
 
+/* صور واقعية جاهزة */
 let items = [
 
 { name:"مطبخ مودرن فاخر", img:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c" },
 { name:"مطبخ صغير ذكي", img:"https://images.unsplash.com/photo-1600566752225-2f1bb8db63b3" },
 { name:"مطبخ صاج حديث", img:"https://images.unsplash.com/photo-1556912167-f556f1f39fdf" },
-{ name:"دريسنج روم مودرن", img:"https://images.unsplash.com/photo-1582582494700-6d79dfb6a8c0" },
-{ name:"دولاب عصري", img:"https://images.unsplash.com/photo-1598300053653-58b8e7b61b87" },
-{ name:"مطبخ مفتوح مودرن", img:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" }
+{ name:"مطبخ مفتوح مودرن", img:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" },
+{ name:"مطبخ أبيض أنيق", img:"https://images.unsplash.com/photo-1560185127-6ed189bf02f4" },
+{ name:"مطبخ خشب طبيعي", img:"https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf" },
+
+{ name:"دريسنج روم فاخر", img:"https://images.unsplash.com/photo-1582582494700-6d79dfb6a8c0" },
+{ name:"غرفة ملابس مودرن", img:"https://images.unsplash.com/photo-1600585152220-90363fe7e115" },
+{ name:"دولاب جرار عصري", img:"https://images.unsplash.com/photo-1598300053653-58b8e7b61b87" },
+{ name:"دريسنج بإضاءة LED", img:"https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" }
 
 ];
 
@@ -137,7 +239,7 @@ document.getElementById("productPage").style.display="block";
 document.getElementById("pImg").src=items[i].img;
 document.getElementById("pTitle").innerText=items[i].name;
 document.getElementById("pBtn").href=
-"https://wa.me/966540220939?text=استفسار عن "+items[i].name;
+"https://wa.me/966540220939?text=السلام عليكم، عايز تفاصيل "+items[i].name;
 }
 
 function goBack(){
