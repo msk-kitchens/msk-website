@@ -13,8 +13,19 @@
         nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 14px; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
 
-        .hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: clamp(35px, 8vw, 70px); color: var(--primary); margin: 0; }
+        /* تعديل الخلفية هنا بالصورة الجديدة */
+        .hero { 
+            height: 90vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('http://googleusercontent.com/generated_image_content/0') no-repeat center/cover; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 0 20px; 
+        }
+        .hero h1 { font-size: clamp(35px, 8vw, 70px); color: var(--primary); margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 20px; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
         
         .btn { padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; display: inline-block; border: none; margin: 5px; cursor: pointer; }
         .btn-primary { background: var(--primary); color: #000; }
