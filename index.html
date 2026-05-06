@@ -1,68 +1,169 @@
-<section class="calc" style="background: #050505; border: 1px solid var(--border); border-radius: 15px; padding: 30px;">
-    <h2 style="color:var(--gold); text-align: center;">📐 صمم حسب ميزانيتك</h2>
-    <p style="text-align: center; color: #777; font-size: 14px;">احصل على سعر تقريبي لمطبخك في ثوانٍ</p>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="grid" style="gap: 10px;">
-        <div>
-            <label style="font-size: 12px; color: var(--gold);">الطول الإجمالي (بالمتر)</label>
-            <input id="w" type="number" placeholder="مثال: 5">
-        </div>
-        <div>
-            <label style="font-size: 12px; color: var(--gold);">نوع الخشب / الخامة</label>
-            <select id="m" onchange="updateInfo()">
-                <option value="1800">صاج مطفي (اقتصادي)</option>
-                <option value="2800">HPL / أكريليك (متوسط)</option>
-                <option value="4500">خشب إيطالي / جولي (فاخر)</option>
-            </select>
-        </div>
-    </div>
+<title>الأسلوب العصري - مطابخ ودريسنج</title>
 
-    <div id="material-note" style="background: #111; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 13px; color: #ccc; border-right: 3px solid var(--gold);">
-        💡 ملاحظة: السعر يشمل الإكسسوارات الأساسية والتركيب.
-    </div>
+<meta name="description" content="مطابخ جدة - تصميم وتنفيذ مطابخ ودريسنج بأعلى جودة أوروبية وأسعار المصنع">
 
-    <button onclick="calc()" style="cursor: pointer; transition: 0.3s;">✨ احسب السعر التقديري</button>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-    <div id="result-box" style="display:none; text-align: center; margin-top: 20px; padding: 20px; background: rgba(197, 163, 103, 0.1); border-radius: 10px;">
-        <h3 id="res" style="color: var(--gold); margin: 0;"></h3>
-        <p style="font-size: 12px; color: #aaa;">هذا السعر تقريبي بناءً على المقاسات المدخلة</p>
-        <a id="send" class="btn" style="width: 80%; margin: 10px auto;">📦 أرسل المقاسات للمهندس وتأكد من السعر</a>
-    </div>
+<style>
+
+:root{
+--gold:#c5a367;
+--dark:#000;
+--card:#0a0a0a;
+--border:rgba(197,163,103,.3);
+}
+
+body{
+margin:0;
+font-family:'Cairo',sans-serif;
+background:#000;
+color:#fff;
+}
+
+/* HEADER */
+header{
+position:sticky;top:0;
+background:rgba(0,0,0,.9);
+padding:15px;
+text-align:center;
+border-bottom:1px solid var(--border);
+}
+header h1{color:var(--gold);margin:0}
+
+/* HERO */
+.hero{
+padding:120px 20px;
+text-align:center;
+background:radial-gradient(circle,#1a1a1a,#000);
+}
+.hero h1{
+font-size:90px;
+color:var(--gold);
+margin:0;
+}
+.hero h2{margin:10px 0}
+.hero p{color:#aaa;max-width:600px;margin:auto}
+
+/* BUTTON */
+.btn{
+background:var(--gold);
+color:#000;
+padding:15px 35px;
+display:inline-block;
+margin-top:25px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+.btn:hover{transform:scale(1.05);background:#fff}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+
+/* CARD */
+.card{
+background:var(--card);
+border:1px solid var(--border);
+overflow:hidden;
+transition:.3s;
+}
+.card:hover{transform:translateY(-5px)}
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+.card h3{
+padding:12px;
+color:var(--gold);
+text-align:center;
+}
+
+/* CTA SECTION */
+.cta{
+text-align:center;
+padding:60px 20px;
+background:#050505;
+border-top:1px solid var(--border);
+}
+.cta p{color:#aaa}
+
+/* MAP */
+iframe{width:100%;border:none}
+
+/* WHATSAPP FLOAT */
+.wa{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#25d366;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+color:#fff;
+animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#000;
+color:#777;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.hero h1{font-size:55px}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>الأسلوب العصري</h1>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<h1>MSK</h1>
+<h2>مطابخ ودريسنج بتصميم فاخر</h2>
+<p>خامات أوروبية - تنفيذ دقيق - من المصنع مباشرة بأفضل سعر</p>
+
+<a href="https://wa.me/966540220939?text=السلام عليكم، حابب عرض سعر لمطبخ"
+class="btn">
+احصل على عرض سعر الآن
+</a>
 </section>
 
-<script>
-function updateInfo() {
-    let m = document.getElementById("m").value;
-    let note = document.getElementById("material-note");
-    if(m == "1800") note.innerText = "💡 الصاج المطفي: عملي جداً، مقاوم للرطوبة وسعره منافس.";
-    if(m == "2800") note.innerText = "💡 HPL/أكريليك: يعطي لمعة وشكل عصري وسهل التنظيف.";
-    if(m == "4500") note.innerText = "💡 الفاخر: خامات إيطالية مع ضمان ممتد وتصاميم خاصة.";
-}
+<!-- WORK -->
+<section>
+<h2 style="text-align:center;color:var(--gold)">نماذج من أعمالنا</h2>
 
-function calc(){
-    let w = document.getElementById("w").value;
-    let m = document.getElementById("m").value;
-    let mText = document.getElementById("m").options[document.getElementById("m").selectedIndex].text;
+<div class="grid">
 
-    if(!w || w <= 0){
-        alert("يرجى إدخال الطول بشكل صحيح");
-        return;
-    }
+<div class="card">
+<img loading="lazy" src="https://images.unsplash.com/photo-1556912170-453f2c710419">
+<h3>مطبخ مودرن فاخر</h3>
+</div>
 
-    let price = w * m;
-    let resBox = document.getElementById("result-box");
-    let resText = document.getElementById("res");
-    
-    resBox.style.display = "block";
-    resText.innerText = "التكلفة التقريبية: " + price.toLocaleString() + " ريال";
-
-    let msg = "مرحباً الأسلوب العصري، استخدمت حاسبة الموقع:\n" + 
-              "- الطول: " + w + " متر\n" + 
-              "- الخامة: " + mText + "\n" + 
-              "- السعر الظاهر: " + price + " ريال\n" +
-              "محتاج تأكيد السعر وتحديد موعد للمعاينة.";
-
-    let link = "https://wa.me/966540220939?text=" + encodeURIComponent(msg);
-    document.getElementById("send").href = link;
-}
-</script>
+<div class="card">
+<img loading="lazy" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
+<h3>م
