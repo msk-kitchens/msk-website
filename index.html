@@ -1,253 +1,223 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>الأسلوب العصري | مطابخ ودريسنج فاخر</title>
+<title>الأسلوب العصري</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
---gold:#c9a96e;
---bg1:#0a0a0a;
---bg2:#111;
---card:#121212;
---border:#2a2a2a;
---text:#fff;
---muted:#cfcfcf;
---green:#25D366;
+
+html{
+scroll-behavior:smooth;
 }
 
-*{box-sizing:border-box}
 body{
 margin:0;
 font-family:'Cairo',sans-serif;
-color:var(--text);
-direction:rtl;
-background:
-radial-gradient(1200px 600px at 80% -10%, rgba(201,169,110,0.15), transparent 60%),
-radial-gradient(1000px 500px at -10% 10%, rgba(201,169,110,0.12), transparent 60%),
-linear-gradient(180deg,var(--bg1),var(--bg2));
+background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+color:#fff;
 }
 
 /* HEADER */
-.header{
-position:sticky;top:0;z-index:10;
-backdrop-filter: blur(8px);
-background:rgba(17,17,17,0.7);
-border-bottom:1px solid var(--border);
-padding:14px 20px;text-align:center;
+header{
+position:sticky;
+top:0;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+padding:15px;
+text-align:center;
+border-bottom:1px solid #333;
 }
-.header h1{margin:0;font-weight:700;letter-spacing:.5px}
+header h1{
+color:#d4af37;
+font-weight:700;
+}
 
 /* HERO */
 .hero{
-text-align:center;padding:60px 20px 40px;
+background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
+padding:120px 20px;
+text-align:center;
 }
-.hero h2{font-size:32px;margin:0 0 10px}
-.hero p{color:var(--muted);margin:0 0 20px}
-
-/* BUTTONS */
-.btn{
-padding:10px 18px;border-radius:8px;text-decoration:none;margin:6px;display:inline-block;
-border:1px solid transparent;transition:.2s;
+.hero h2{
+font-size:40px;
+background:rgba(0,0,0,0.6);
+display:inline-block;
+padding:10px 20px;
+border-radius:10px;
 }
-.gold{background:var(--gold);color:#000;}
-.whatsapp{background:var(--green);color:#fff;}
-.dark{background:#000;color:#fff;border:1px solid #fff;}
-.btn:hover{transform:translateY(-2px);opacity:.95}
 
 /* SECTION */
-.section{padding:40px 20px;text-align:center}
-.section h2{margin-bottom:10px}
+section{padding:40px 20px}
 
 /* GRID */
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:16px;padding:10px 10px 20px;
-max-width:1200px;margin:auto;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
+/* CARD */
 .card{
-background:linear-gradient(180deg,#121212,#0e0e0e);
-border-radius:14px;
+background:#111;
+border-radius:12px;
 overflow:hidden;
-border:1px solid var(--border);
-cursor:pointer;
-transition:.25s;
-box-shadow:0 10px 25px rgba(0,0,0,.25);
+transition:.3s;
 }
-.card:hover{
-transform:translateY(-6px);
-border-color:var(--gold);
-box-shadow:0 15px 35px rgba(0,0,0,.35);
-}
+.card:hover{transform:scale(1.05)}
 .card img{
-width:100%;height:210px;object-fit:cover;
-filter:saturate(1.05) contrast(1.05);
+width:100%;
+height:250px;
+object-fit:cover;
 }
-.card h3{padding:12px;margin:0;font-size:16px}
-
-/* PRODUCT PAGE */
-.product-page{
-display:none;padding:20px;text-align:center;max-width:900px;margin:auto;
-}
-.product-page img{
-width:100%;max-width:520px;border-radius:14px;
-box-shadow:0 15px 35px rgba(0,0,0,.4);
-}
-.product-page p{color:var(--muted)}
-.back{
-cursor:pointer;color:var(--gold);display:inline-block;margin-bottom:10px;
+.card h3{
+padding:10px;
+color:#d4af37;
 }
 
-/* REVIEWS */
-.review{
-padding:16px;border:1px solid var(--border);
-border-radius:12px;background:#111;
+/* GALLERY FIX */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+/* FEATURES */
+.features .card{
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+gap:10px;
 }
 
 /* MAP */
 iframe{
-width:100%;height:300px;border:none;border-radius:14px;
+width:100%;
+border:none;
+border-radius:10px;
 }
 
-/* FOOTER */
-.footer{padding:20px;color:#aaa;text-align:center}
-</style>
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#25D366;
+color:#fff;
+padding:12px 18px;
+border-radius:50px;
+text-decoration:none;
+font-size:14px;
+animation:pulse 1.5s infinite;
+}
 
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+.gallery{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#000;
+color:#aaa;
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
+<header>
 <h1>الأسلوب العصري</h1>
-</div>
+</header>
 
-<!-- HERO -->
-<div class="hero">
-<h2>نصمم لك الأفضل… بخامات تدوم</h2>
-<p>مطابخ • دريسنج • صاج • خشب • هجين — تصميمات عصرية وأسعار من المصنع</p>
+<section class="hero">
+<h2>اهلاً بك في الأسلوب العصري</h2>
+<p>تصاميم أوروبية - جودة عالية - تنفيذ سريع</p>
+</section>
 
-<a class="btn gold" href="#catalog">تصفح الموقع</a>
+<!-- الكتالوج -->
+<section>
+<h2 style="text-align:center;color:#d4af37;">الكتالوج</h2>
 
-<a class="btn whatsapp"
-href="https://wa.me/966540220939?text=السلام عليكم، عايز كتالوج الأعمال والصور">
-كتالوج واتساب
-</a>
-
-<a class="btn dark"
-href="https://www.tiktok.com/@m0540220939?_r=1&_t=ZS-966OfIhG5aB">
-تيك توك
-</a>
-</div>
-
-<!-- CATALOG -->
-<div class="section" id="catalog">
-<h2>نماذج من أعمالنا</h2>
-<p style="color:#bbb">اضغط على أي صورة لعرض التفاصيل والتواصل</p>
-</div>
-
-<div class="products" id="list"></div>
-
-<!-- PRODUCT PAGE -->
-<div class="product-page" id="productPage">
-<span class="back" onclick="goBack()">⬅ رجوع</span>
-<img id="pImg">
-<h2 id="pTitle"></h2>
-<p>خامات أوروبية عالية الجودة • تصميم عصري • استغلال ذكي للمساحات • تنفيذ سريع</p>
-<a id="pBtn" class="btn whatsapp">استفسار واتساب</a>
-</div>
-
-<!-- REVIEWS -->
-<div class="section">
-<h2>آراء العملاء</h2>
 <div class="products">
-<div class="review"><h3>⭐⭐⭐⭐⭐</h3><p>شغل ممتاز وخامات عالية جداً</p></div>
-<div class="review"><h3>⭐⭐⭐⭐⭐</h3><p>تنفيذ سريع والتعامل راقي</p></div>
-<div class="review"><h3>⭐⭐⭐⭐⭐</h3><p>أفضل جودة مقابل السعر</p></div>
+
+<div class="card">
+<img loading="lazy" src="https://images.unsplash.com/photo-1588854337221-4cf9fa96059c">
+<h3>لون داكن فاخر</h3>
 </div>
 
-<a class="btn gold" href="https://maps.app.goo.gl/GZgfp78RDPaQT3xC8">
-شاهد تقييماتنا على Google
+<div class="card">
+<img loading="lazy" src="https://images.unsplash.com/photo-1598300053653-58b8e7b61b87">
+<h3>بني مودرن</h3>
+</div>
+
+<div class="card">
+<img loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+<h3>خشب طبيعي</h3>
+</div>
+
+</div>
+</section>
+
+<!-- اعمال -->
+<section>
+<h2 style="text-align:center;color:#d4af37;">أعمالنا</h2>
+
+<div class="gallery">
+<img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0">
+<img loading="lazy" src="https://images.unsplash.com/photo-1600566752355-35792bedcfea">
+<img loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d">
+<img loading="lazy" src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
+</div>
+</section>
+
+<!-- المميزات -->
+<section class="features">
+<h2 style="text-align:center;color:#d4af37;">ليه تختارنا؟</h2>
+
+<div class="products">
+
+<div class="card">🛠 خامات أوروبية</div>
+<div class="card">🎨 تصميم عصري</div>
+<div class="card">💰 أسعار منافسة</div>
+<div class="card">⏱ تنفيذ سريع</div>
+
+</div>
+</section>
+
+<!-- ماب -->
+<section>
+<h2 style="text-align:center;color:#d4af37;">موقعنا</h2>
+
+<iframe src="https://maps.google.com/maps?q=جدة&output=embed" height="300"></iframe>
+</section>
+
+<!-- واتساب -->
+<a class="whatsapp"
+href="https://wa.me/966540220939?text=السلام%20عليكم%20الأسلوب%20العصري..%20حابب%20استفسر%20عن%20المطابخ">
+اطلب عرض سعر
 </a>
-</div>
 
-<!-- MAP -->
-<div class="section">
-<h2>موقعنا</h2>
-<iframe src="https://www.google.com/maps?q=جدة+عسفان&output=embed"></iframe>
-</div>
-
-<!-- CONTACT -->
-<div class="section">
-<h2>تواصل معنا</h2>
-<p>📞 0540220939</p>
-<p>📧 msk.kitchens424@gmail.com</p>
-
-<a class="btn whatsapp"
-href="https://wa.me/966540220939?text=السلام عليكم، عايز عرض سعر">
-اطلب عرض سعر الآن
-</a>
-</div>
-
-<div class="footer">
+<footer>
 © جميع الحقوق محفوظة - الأسلوب العصري
-</div>
-
-<script>
-
-/* صور واقعية جاهزة */
-let items = [
-
-{ name:"مطبخ مودرن فاخر", img:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c" },
-{ name:"مطبخ صغير ذكي", img:"https://images.unsplash.com/photo-1600566752225-2f1bb8db63b3" },
-{ name:"مطبخ صاج حديث", img:"https://images.unsplash.com/photo-1556912167-f556f1f39fdf" },
-{ name:"مطبخ مفتوح مودرن", img:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" },
-{ name:"مطبخ أبيض أنيق", img:"https://images.unsplash.com/photo-1560185127-6ed189bf02f4" },
-{ name:"مطبخ خشب طبيعي", img:"https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf" },
-
-{ name:"دريسنج روم فاخر", img:"https://images.unsplash.com/photo-1582582494700-6d79dfb6a8c0" },
-{ name:"غرفة ملابس مودرن", img:"https://images.unsplash.com/photo-1600585152220-90363fe7e115" },
-{ name:"دولاب جرار عصري", img:"https://images.unsplash.com/photo-1598300053653-58b8e7b61b87" },
-{ name:"دريسنج بإضاءة LED", img:"https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" }
-
-];
-
-function show(){
-let html="";
-items.forEach((item,i)=>{
-html+=`
-<div class="card" onclick="openProduct(${i})">
-<img src="${item.img}">
-<h3>${item.name}</h3>
-</div>`;
-});
-document.getElementById("list").innerHTML=html;
-}
-
-show();
-
-function openProduct(i){
-document.getElementById("list").style.display="none";
-document.getElementById("productPage").style.display="block";
-
-document.getElementById("pImg").src=items[i].img;
-document.getElementById("pTitle").innerText=items[i].name;
-document.getElementById("pBtn").href=
-"https://wa.me/966540220939?text=السلام عليكم، عايز تفاصيل "+items[i].name;
-}
-
-function goBack(){
-document.getElementById("list").style.display="grid";
-document.getElementById("productPage").style.display="none";
-}
-
-</script>
+</footer>
 
 </body>
 </html>
