@@ -3,17 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MSK | الأسلوب العصري للمطابخ</title>
+<title>MSK | الأسلوب العصري</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root{
---gold:#c5a367;
---dark:#0a0a0a;
---gray:#1a1a1a;
-}
-
 body{
 margin:0;
 font-family:'Cairo',sans-serif;
@@ -26,62 +20,41 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,0.9);
+background:#000;
 display:flex;
 justify-content:center;
 gap:20px;
 padding:15px;
 z-index:1000;
-border-bottom:1px solid #111;
 }
 nav a{
 color:#aaa;
 text-decoration:none;
-font-size:14px;
 }
-nav a:hover{color:var(--gold);}
+nav a:hover{color:#c5a367}
 
 /* HERO */
 .hero{
-height:100vh;
+height:90vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:linear-gradient(#0009,#000),
-url("https://images.unsplash.com/photo-1600585154526-990dced4db0d");
-background-size:cover;
+background:#111;
 }
-.hero h1{
-font-size:100px;
-color:var(--gold);
-margin:0;
-}
-.hero h2{margin:10px 0;}
+.hero h1{font-size:80px;color:#c5a367;margin:0;}
 .hero a{
-background:var(--gold);
+background:#c5a367;
 color:#000;
-padding:15px 40px;
+padding:12px 30px;
 text-decoration:none;
 font-weight:bold;
 }
 
 /* SECTION */
-section{padding:80px 20px;max-width:1100px;margin:auto;}
-.title{
-text-align:center;
-color:var(--gold);
-font-size:28px;
-margin-bottom:40px;
-}
-
-/* ABOUT */
-.about{
-background:#111;
-padding:30px;
-border-right:5px solid var(--gold);
-}
+section{padding:70px 20px;max-width:1100px;margin:auto;}
+.title{text-align:center;color:#c5a367;margin-bottom:30px;}
 
 /* GRID */
 .grid{
@@ -89,60 +62,39 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
-
 .card{
 background:#111;
 border:1px solid #222;
-overflow:hidden;
 }
 .card img{
 width:100%;
 height:250px;
 object-fit:cover;
 }
-.card h3{
-text-align:center;
-padding:15px;
-color:var(--gold);
-}
+.card h3{text-align:center;padding:10px;color:#c5a367}
 
-/* TESTIMONIAL */
-.testimonial{
+/* ABOUT */
+.about{
 background:#111;
 padding:20px;
-border-top:3px solid var(--gold);
+border-right:4px solid #c5a367;
+}
+
+/* REVIEWS */
+.review{
+background:#111;
+padding:15px;
+border-top:3px solid #c5a367;
 }
 
 /* MAP */
-iframe{
-width:100%;
-height:350px;
-border:0;
-}
+iframe{width:100%;height:350px;border:0}
 
 /* FOOTER */
 footer{
 text-align:center;
-padding:40px;
-background:#000;
+padding:30px;
 color:#666;
-}
-
-/* WHATSAPP */
-.wa{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#25d366;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-color:#fff;
-text-decoration:none;
 }
 </style>
 </head>
@@ -153,28 +105,21 @@ text-decoration:none;
 <a href="#about">من نحن</a>
 <a href="#work">أعمالنا</a>
 <a href="#reviews">التقييمات</a>
+<a href="#tiktok">تيك توك</a>
 <a href="#map">الموقع</a>
 </nav>
 
 <section class="hero">
 <h1>MSK</h1>
-<h2>الأسلوب العصري للمطابخ</h2>
-<p>من المصنع للعميل مباشرة بأعلى جودة</p>
-<a href="https://wa.me/966540220939">اطلب عرض سعر</a>
+<p>الأسلوب العصري للمطابخ</p>
+<a href="https://wa.me/966540220939">تواصل واتساب</a>
 </section>
 
 <section id="about">
 <h2 class="title">من نحن</h2>
 <div class="about">
-<p>
-نحن في <b>الأسلوب العصري</b> متخصصون في تصميم وتنفيذ المطابخ والدريسنج روم.
-نعمل من مصنعنا مباشرة في عسفان لنقدم لك أعلى جودة بأفضل سعر.
-</p>
-<ul>
-<li>✔️ تصنيع مباشر (بدون وسيط)</li>
-<li>✔️ خامات قوية وعمر طويل</li>
-<li>✔️ التزام بالمواعيد</li>
-</ul>
+نحن مصنع متخصص في تصميم وتنفيذ المطابخ والدريسنج روم من المصنع مباشرة في عسفان.
+نوفر جودة عالية بأسعار مباشرة بدون وسيط.
 </div>
 </section>
 
@@ -183,18 +128,18 @@ text-decoration:none;
 <div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1556912170-453f2c710419">
-<h3>مطبخ صاج مودرن</h3>
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800">
+<h3>مطبخ مودرن</h3>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2">
-<h3>دريسنج روم فاخر</h3>
+<img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=800">
+<h3>دريسنج روم</h3>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d">
-<h3>تصميم خشب إيطالي</h3>
+<img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800">
+<h3>تصميم فاخر</h3>
 </div>
 
 </div>
@@ -205,36 +150,43 @@ text-decoration:none;
 
 <div class="grid">
 
-<div class="testimonial">
-<p>شغل ممتاز والتزام عالي جداً 👍</p>
-<b>أم سلطان ⭐⭐⭐⭐⭐</b>
+<div class="review">
+<p>شغل ممتاز والتزام كامل بالمواعيد</p>
+<b>⭐⭐⭐⭐⭐</b>
 </div>
 
-<div class="testimonial">
+<div class="review">
 <p>أفضل سعر مقابل الجودة في جدة</p>
-<b>أبو وسام ⭐⭐⭐⭐⭐</b>
+<b>⭐⭐⭐⭐⭐</b>
 </div>
 
-<div class="testimonial">
-<p>تعامل راقي ونتيجة فوق التوقع</p>
-<b>د. عماد ⭐⭐⭐⭐⭐</b>
+<div class="review">
+<p>تعامل محترم ونتيجة فوق التوقع</p>
+<b>⭐⭐⭐⭐⭐</b>
 </div>
 
+</div>
+</section>
+
+<section id="tiktok">
+<h2 class="title">تابعنا على تيك توك</h2>
+<div style="text-align:center">
+<a href="https://www.tiktok.com/@modern_style_kitchens" target="_blank" style="color:#c5a367;font-size:18px;">
+اضغط هنا لمشاهدة فيديوهاتنا على تيك توك
+</a>
 </div>
 </section>
 
 <section id="map">
 <h2 class="title">موقعنا</h2>
-<iframe src="https://www.google.com/maps?q=Jeddah&output=embed"></iframe>
+<iframe src="https://maps.google.com/maps?q=جدة&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
 
 <footer>
 <p>📍 جدة - عسفان</p>
 <p>📞 0540220939</p>
-<p>© 2026 MSK</p>
+<p>© MSK 2026</p>
 </footer>
-
-<a class="wa" href="https://wa.me/966540220939">💬</a>
 
 </body>
 </html>
