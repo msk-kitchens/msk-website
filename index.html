@@ -1,335 +1,113 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأسلوب العصري - MSK للمطابخ والديكور</title>
-    <meta name="description" content="MSK الأسلوب العصري - نصمم مطابخ ودريسنج روم فاخرة في جدة. من المصنع للعميل مباشرة">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Tajawal:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #c5a367;
-            --gold-light: #d4b87a;
-            --dark-pure: #000000;
-            --dark-card: #0d0d0d;
-            --dark-bg: #050505;
-            --border: rgba(197, 163, 103, 0.25);
-        }
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            margin: 0;
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--dark-pure);
-            color: #fff;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
-        }
-        header .logo {
-            color: var(--gold);
-            font-family: 'Tajawal', sans-serif;
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-        header nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 700;
-            transition: 0.3s;
-        }
-        header nav a:hover { color: var(--gold); }
-        /* HERO SECTION */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
-            padding: 0 20px;
-        }
-        .hero .brand-name {
-            font-family: 'Tajawal', sans-serif;
-            font-size: clamp(90px, 20vw, 180px);
-            font-weight: 900;
-            color: var(--gold);
-            margin: 0;
-            line-height: 0.8;
-            text-shadow: 0 10px 30px rgba(197,163,103,0.3);
-        }
-        .hero h2 {
-            font-size: clamp(24px, 4vw, 42px);
-            margin: 30px 0 15px;
-            font-weight: 700;
-        }
-        .hero p {
-            color: #bbb;
-            max-width: 650px;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .btn-primary {
-            background: var(--gold);
-            color: #000;
-            padding: 16px 45px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 18px;
-            transition: 0.3s;
-            border: 2px solid var(--gold);
-        }
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--gold);
-            padding: 16px 45px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            transition: 0.3s;
-            border: 2px solid var(--border);
-        }
-        .btn-secondary:hover {
-            border-color: var(--gold);
-            background: rgba(197,163,103,0.1);
-        }
-        /* SERVICES */
-        .services-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 80px 10%;
-            background: var(--dark-bg);
-            border-bottom: 1px solid var(--border);
-        }
-        .service-item {
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--dark-card);
-            border: 1px solid var(--border);
-            transition: 0.4s;
-        }
-        .service-item:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .service-item svg {
-            width: 50px;
-            height: 50px;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-        .service-item h4 {
-            color: var(--gold);
-            margin: 10px 0;
-            font-size: 20px;
-            font-weight: 700;
-        }
-        .service-item p { font-size: 15px; color: #888; margin: 0; }
-        /* SECTION STYLING */
-        section { padding: 120px 10%; }
-        .section-title {
-            text-align: center;
-            color: var(--gold);
-            font-family: 'Tajawal', sans-serif;
-            font-size: 42px;
-            font-weight: 900;
-            margin-bottom: 20px;
-        }
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 70px;
-            font-size: 18px;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 25px auto;
-        }
-        /* GALLERY */
-        .showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        .work-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border);
-            overflow: hidden;
-            transition: 0.5s;
-        }
-        .work-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--gold);
-            box-shadow: 0 20px 50px rgba(197,163,103,0.2);
-        }
-        .work-card .img-box {
-            width: 100%;
-            height: 450px;
-            overflow: hidden;
-            position: relative;
-        }
-        .work-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 1s;
-            filter: brightness(0.7);
-        }
-        .work-card:hover img {
-            transform: scale(1.15);
-            filter: brightness(1);
-        }
-        .work-card .overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            opacity: 0;
-            transition: 0.5s;
-        }
-        .work-card:hover .overlay { opacity: 1; }
-        .work-card .content {
-            padding: 30px;
-            text-align: center;
-        }
-        .work-card h3 {
-            color: var(--gold);
-            margin: 0 0 10px;
-            font-size: 22px;
-            font-weight: 700;
-        }
-        .work-card p { color: #777; margin: 0; font-size: 15px; }
-        /* TESTIMONIALS */
-        .testimonials {
-            background: var(--dark-bg);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .testimonial-card {
-            background: var(--dark-card);
-            padding: 40px 30px;
-            border: 1px solid var(--border);
-            position: relative;
-        }
-        .testimonial-card::before {
-            content: '“';
-            position: absolute;
-            top: 10px; right: 20px;
-            font-size: 80px;
-            color: var(--gold);
-            opacity: 0.2;
-            font-family: serif;
-        }
-        .testimonial-card p {
-            color: #aaa;
-            font-size: 16px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .testimonial-card .client {
-            color: var(--gold);
-            font-weight: 700;
-        }
-        /* CTA */
-        .cta {
-            text-align: center;
-            padding: 140px 20px;
-            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1556911220-bff31c812dba') center/cover;
-        }
-        .cta h2 {
-            color: var(--gold);
-            font-family: 'Tajawal', sans-serif;
-            font-size: 40px;
-            margin-bottom: 20px;
-            font-weight: 900;
-        }
-        /* WHATSAPP FLOAT */
-        .wa-float {
-            position: fixed;
-            bottom: 30px; left: 30px;
-            background: #25d366;
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            animation: wa-pulse 2s infinite;
-        }
-        .wa-float svg { width: 32px; height: 32px; color: #fff; }
-        @keyframes wa-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        /* FOOTER */
-        footer {
-            padding: 60px 10%;
-            text-align: center;
-            background: var(--dark-bg);
-            border-top: 1px solid var(--border);
-        }
-        footer .footer-logo {
-            color: var(--gold);
-            font-family: 'Tajawal', sans-serif;
-            font-size: 32px;
-            font-weight: 900;
-            margin-bottom: 20px;
-        }
-        footer p { color: #555; font-size: 15px; margin: 5px 0; }
-        @media (max-width: 768px) {
-            header nav { display: none; }
-            section { padding: 80px 25px; }
-            .hero { height: 90vh; }
-            .showcase { grid-template-columns: 1fr; }
-            .work-card .img-box { height: 350px; }
-            .hero-btns { flex-direction: column; }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo">MSK | الأسلوب العصري</div>
         <nav>
+            <a href="#about">من نحن</a>
+            <a href="#work">أعمالنا</a>
+            <a href="#testimonials">قالوا عنا</a>
+            <a href="https://wa.me/966540220939">اتصل بنا</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="brand-name">MSK</h1>
+        <h2>الأسلوب العصري للمطابخ</h2>
+        <p>نصمم لك مطبخاً يفوق الخيال، يجمع بين متانة الصاج وفخامة التصميم الإيطالي. جودة عالمية تصلك من مصنعنا في عسفان مباشرة.</p>
+        <div class="hero-btns">
+            <a href="https://wa.me/966540220939?text=السلام عليكم، حابب استفسر عن تفصيل مطبخ" class="btn-primary">اطلب عرض سعر الآن</a>
+            <a href="#work" class="btn-secondary">استعرض أعمالنا</a>
+        </div>
+    </section>
+
+    <div class="services-bar" id="about">
+        <div class="service-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <h4>من المصنع للعميل</h4>
+            <p>نحن نصنع ونورد مباشرة من مصنعنا في عسفان، مما يضمن لك أفضل جودة بأقل تكلفة.</p>
+        </div>
+        <div class="service-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <h4>خامات إيطالية</h4>
+            <p>نستخدم أجود أنواع الأخشاب الإيطالية، الـ HPL، والرخام والبورسلان لضمان فخامة تدوم.</p>
+        </div>
+        <div class="service-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <h4>إكسسوارات Blum</h4>
+            <p>تجهيزات مطابخنا مزودة بأفضل أنظمة الهيدروليك العالمية لضمان سهولة وانسيابية الاستخدام.</p>
+        </div>
+    </div>
+
+    <section id="work">
+        <h2 class="section-title">إبداعات الأسلوب العصري</h2>
+        <p class="section-subtitle">تشكيلة مختارة من أعمالنا المنفذة في جدة ومكة، حيث تلتقي الدقة في التصنيع بالذوق الرفيع.</p>
+        <div class="showcase">
+            <div class="work-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1556912170-453f2c710419" alt="مطبخ صاج">
+                    <div class="overlay"></div>
+                </div>
+                <div class="content">
+                    <h3>مطابخ صاج فاخرة</h3>
+                    <p>متانة لا تضاهى بتصاميم مودرن عصرية.</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2" alt="دريسنج روم">
+                    <div class="overlay"></div>
+                </div>
+                <div class="content">
+                    <h3>دريسنج روم إيطالي</h3>
+                    <p>استغلال ذكي للمساحات مع لمسة فندقية.</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d" alt="خزائن ملابس">
+                    <div class="overlay"></div>
+                </div>
+                <div class="content">
+                    <h3>خزائن ملابس حديثة</h3>
+                    <p>تنظيم مثالي لراحتك اليومية بخامات عالية الجودة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">قالوا عن MSK</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"ما شاء الله تبارك الله، شغل احترافي جداً والتزام تام بالمواعيد. المطبخ طلع أجمل مما تخيلت."</p>
+                <div class="client">أم سلطان ⭐⭐⭐⭐⭐</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"دقة في التنفيذ وفريق عمل محترم. أنصح بالتعامل مع المهندس محمد إبراهيم وفريقه."</p>
+                <div class="client">د. عماد جان ⭐⭐⭐⭐⭐</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"خامات ممتازة وسعر منافس جداً مقارنة بالسوق. التجربة كانت رائعة من التصميم للتركيب."</p>
+                <div class="client">أبو وسام ⭐⭐⭐⭐⭐</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>هل أنت جاهز لتصميم مطبخ أحلامك؟</h2>
+        <p style="color: #bbb; margin-bottom: 40px;">نحن نصلك أينما كنت في جدة ومكة لنقوم بالقياس والتصميم المبدئي مجاناً.</p>
+        <a href="https://wa.me/966540220939?text=السلام عليكم، حابب أبدأ تنفيذ مطبخي" class="btn-primary">تواصل معنا الآن</a>
+    </section>
+
+    <a href="https://wa.me/966540220939" class="wa-float" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.539 2.016 2.126-.54c1.029.563 2.025.921 3.162.921 3.182 0 5.768-2.586 5.768-5.766 0-3.18-2.586-5.764-5.768-5.764zm3.394 8.163c-.147.415-.852.757-1.17.788-.321.031-.645.045-1.061-.133-.198-.084-.43-.19-.742-.326-1.352-.589-2.22-1.938-2.287-2.027-.067-.089-.539-.718-.539-1.37s.341-.973.463-1.103c.122-.13.266-.163.355-.163h.252c.075 0 .175.003.253.19.083.199.288.701.313.753.026.052.044.112.01.177-.034.066-.051.108-.101.165-.051.058-.107.13-.153.175-.05.05-.101.103-.043.202.058.1.258.426.554.69.381.34 0 .498.082.59.082.092.27.3.344.401.074.1.01.257-.045.367-.056.111-.253.239-.391.391z"/></svg>
+    </a>
+
+    <footer>
+        <div class="footer-logo">MSK | الأسلوب العصري</div>
+        <p>المقر الرئيسي: جدة - عسفان | فرع مكة المكرمة</p>
+        <p>0540220939 | المهندس محمد إبراهيم</p>
+        <div style="margin: 20px 0;">
+            <a href="https://www.tiktok.com/@modern_style_kitchens" style="color: var(--gold); text-decoration: none; margin: 0 10px;">TikTok</a>
+            <a href="https://www.instagram.com/modern_style_kitchens" style="color: var(--gold); text-decoration: none; margin: 0 10px;">Instagram</a>
+        </div>
+        <p>© 2026 جميع الحقوق محفوظة لشركة الأسلوب العصري للمطابخ والديكور</p>
+    </footer>
+</body>
+</html>
