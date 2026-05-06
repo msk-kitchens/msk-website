@@ -10,27 +10,20 @@
         body { margin: 0; font-family: 'Cairo', sans-serif; background: var(--dark); color: var(--light); scroll-behavior: smooth; }
         nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); display: flex; justify-content: center; gap: 20px; padding: 15px 0; z-index: 1000; border-bottom: 2px solid var(--primary); }
         nav a { color: #fff; text-decoration: none; font-weight: bold; }
-        .hero { height: 70vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: 50px; color: var(--primary); margin: 0; }
+        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        .hero h1 { font-size: 45px; color: var(--primary); margin: 0; }
         .btn { padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; display: inline-block; margin: 10px; border: none; cursor: pointer; text-align: center; }
         .btn-primary { background: var(--primary); color: #000; }
         .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
-        section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-        .title { text-align: center; color: var(--primary); margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid var(--primary); display: inline-block; width: auto; padding-bottom: 10px; }
-        .section-wrap { text-align: center; }
+        section { padding: 50px 20px; max-width: 1100px; margin: auto; }
+        .title { text-align: center; color: var(--primary); margin-bottom: 30px; font-size: 26px; font-weight: 900; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card { background: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; padding: 15px; text-align: center; }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
-        
-        /* تصميم قسم التقييمات */
-        .review-card { background: #252525; border-right: 4px solid var(--primary); padding: 20px; border-radius: 8px; text-align: right; margin-bottom: 15px; }
-        .stars { color: #ffc107; font-size: 18px; margin-bottom: 10px; }
-        .review-text { font-style: italic; color: #ccc; font-size: 14px; }
-        .reviewer { font-weight: bold; color: var(--primary); margin-top: 10px; display: block; }
-
-        .map-container { border-radius: 15px; overflow: hidden; border: 2px solid var(--primary); }
+        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
+        .review-card { background: #1a1a1a; border-right: 5px solid var(--primary); padding: 20px; border-radius: 8px; text-align: right; margin-bottom: 10px; }
+        .map-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--primary); background: #222; }
         .wa-float { position: fixed; bottom: 20px; left: 20px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        footer { text-align: center; padding: 30px; background: #000; color: #777; }
+        footer { text-align: center; padding: 30px; background: #000; color: #666; }
     </style>
 </head>
 <body>
@@ -43,13 +36,14 @@
 
     <section class="hero">
         <h1>MSK</h1>
-        <p>الأسلوب العصري للمطابخ والديكور<br>إبداع في التصميم ودقة في التنفيذ</p>
-        <div>
+        <p>الأسلوب العصري للمطابخ والديكور</p>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center;">
             <a href="https://wa.me/966540220939" class="btn btn-primary">تواصل معنا الآن</a>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJ25D6sO2fwRURT3EoHG9ecLg" target="_blank" class="btn btn-outline">⭐ أضف تقييمك</a>
         </div>
     </section>
 
-    <section id="work" class="section-wrap">
+    <section id="work">
         <h2 class="title">نماذج من أعمالنا</h2>
         <div class="grid">
             <div class="card"><img src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=800"><h3>مطابخ حديثة</h3></div>
@@ -58,46 +52,32 @@
         </div>
     </section>
 
-    <section id="reviews" class="section-wrap">
+    <section id="reviews">
         <h2 class="title">آراء عملائنا</h2>
         <div class="grid">
             <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"ما شاء الله تبارك الله، تعامل راقي وشغل نظيف جداً في المطبخ، الدقة في المواعيد أهم شيء عندهم."</p>
-                <span class="reviewer">- أبو محمد</span>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"فصلت عندهم دريسنج روم والنتيجة طلعت أفضل من التصميم، شكراً لكل القائمين على المصنع."</p>
-                <span class="reviewer">- سارة أحمد</span>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"أفضل ورشة في عسفان من ناحية جودة الخشب والتركيب المتقن، أنصح بالتعامل معهم."</p>
-                <span class="reviewer">- المهندس خالد</span>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"شغل احترافي وسعر منافس جداً مقارنة بالسوق، والتصميم الـ 3D ساعدني كثير أتخيل الشكل."</p>
-                <span class="reviewer">- فهد العتيبي</span>
+                <p>"ما شاء الله تبارك الله، تعامل راقي وشغل نظيف جداً في المطبخ، الدقة في المواعيد أهم شيء عندهم."</p>
+                <small style="color: var(--primary);">تقييم 5 نجوم - قوقل ماب</small>
             </div>
         </div>
-        <a href="https://www.google.com/maps/place/21%C2%B054'43.0%22N+39%C2%B020'31.0%22E" target="_blank" class="btn btn-outline" style="margin-top:20px;">أضف تقييمك على جوجل</a>
+        <div style="text-align:center; margin-top:20px;">
+            <a href="https://www.google.com/maps/place/?q=place_id:ChIJ25D6sO2fwRURT3EoHG9ecLg" target="_blank" class="btn btn-outline">شاهد جميع التقييمات على قوقل</a>
+        </div>
     </section>
 
-    <section id="map" class="section-wrap">
+    <section id="map">
         <h2 class="title">موقعنا في عسفان</h2>
-        <div style="margin-bottom:20px;">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=21.911944,39.341944" target="_blank" class="btn btn-primary">توجيه الخريطة (GPS) 📍</a>
+        <div style="text-align:center; margin-bottom:20px;">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=الاسلوب+العصري+للمطابخ&destination_place_id=ChIJ25D6sO2fwRURT3EoHG9ecLg" target="_blank" class="btn btn-primary">فتح اللوكيشن (GPS) 📍</a>
         </div>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3701.3787754512964!2d39.33946937526279!3d21.911943979013063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDU0JzQzLjAiTiAzOcKwMjAnMzEuMCJF!5e0!3m2!1sen!2ssa!4v1715000000000!5m2!1sen!2ssa" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m12!1m3!1d14781.424364805047!2d39.355868!3d21.9322376!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c09fedb0fa90db%3A0xb8705e6f1c28714f!2z2KfZhNin2LPZhNmI2Kgg2KfZhNi52LXYsdmZINmE2YTZhdir2KfYqNiu!5e0!3m2!1sar!2ssa!4v1715000000000!5m2!1sar!2ssa" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <footer>
-        <p>📍 جدة - عسفان | 📱 0540220939</p>
-        <p>© 2026 الأسلوب العصري للمطابخ - MSK</p>
+        <p>📍 جدة - عسفان - شارع الأمير مشعل بن عبدالله</p>
+        <p>📱 0540220939</p>
     </footer>
 
     <a href="https://wa.me/966540220939" class="wa-float" target="_blank">
