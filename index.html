@@ -13,19 +13,8 @@
         nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 14px; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
 
-        /* الرابط الدائم للصورة الجديدة */
-        .hero { 
-            height: 90vh; 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://raw.githubusercontent.com/Mohsen-AI/images/main/msk-family-kitchen.jpg') no-repeat center/cover; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            padding: 0 20px; 
-        }
-        .hero h1 { font-size: clamp(35px, 8vw, 70px); color: var(--primary); margin: 0; text-shadow: 2px 2px 15px rgba(0,0,0,0.7); }
-        .hero p { font-size: 22px; font-weight: 700; text-shadow: 1px 1px 10px rgba(0,0,0,0.9); margin-top: 10px; }
+        .hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        .hero h1 { font-size: clamp(35px, 8vw, 70px); color: var(--primary); margin: 0; }
         
         .btn { padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; display: inline-block; border: none; margin: 5px; cursor: pointer; }
         .btn-primary { background: var(--primary); color: #000; }
@@ -62,7 +51,7 @@
         <p>الأسلوب العصري للمطابخ والديكور<br>جودة المصنع من عسفان لكل جدة</p>
         <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
             <a href="https://wa.me/966540220939?text=السلام%20عليكم%2C%20دخلت%20على%20موقع%20الأسلوب%20العصري%20وحابب%20أستفسر%20عن%20تفصيل%20مطبخ%20/%20خزانة%20ملابس%20/%20ديكور" class="btn btn-primary">تواصل معنا</a>
-            <a href="https://www.google.com/maps?q=21.9161,39.3364" target="_blank" class="btn btn-outline">موقعنا</a>
+            <a href="https://www.google.com/maps/search/الأسلوب+العصري+للمطابخ+عسفان" target="_blank" class="btn btn-outline">موقعنا</a>
         </div>
     </section>
 
@@ -85,11 +74,12 @@
     </section>
 
     <section id="catalog" style="text-align:center;">
-        <h2 class="title">الكتالوج والمنصات</h2>
+        <h2 class="title">كتالوج الأعمال والمنصات</h2>
         <div class="grid">
             <div class="card">
-                <h3>واتساب</h3>
-                <a href="https://wa.me/c/966540220939" target="_blank" class="btn btn-primary">الكتالوج</a>
+                <h3>واتساب للأعمال</h3>
+                <p>تصفح الكتالوج مباشرة</p>
+                <a href="https://wa.me/c/966540220939" target="_blank" class="btn btn-primary">فتح الكتالوج</a>
             </div>
             <div class="card">
                 <h3>تيك توك</h3>
@@ -102,12 +92,19 @@
         </div>
     </section>
 
+    <section id="map">
+        <h2 class="title">موقعنا في عسفان</h2>
+        <div class="map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118357.2185202613!2d39.2272365!3d21.9360879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c1033289052069%3A0x7d65606d5069b20e!2z2LnYs9mB2KfZhg!5e0!3m2!1sar!2ssa!4v1715000000000!5m2!1sar!2ssa" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
     <footer>
         <p>📍 جدة - عسفان | 📱 0540220939</p>
         <p>© 2026 الأسلوب العصري للمطابخ - MSK</p>
     </footer>
 
-    <a href="https://wa.me/966540220939" class="wa-float" target="_blank">
+    <a href="https://wa.me/966540220939?text=السلام%20عليكم%2C%20دخلت%20على%20موقع%20الأسلوب%20العصري%20وحابب%20أستفسر%20عن%20تفصيل%20مطبخ%20/%20خزانة%20ملابس%20/%20ديكور" class="wa-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
