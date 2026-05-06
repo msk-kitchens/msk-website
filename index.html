@@ -1,223 +1,300 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الأسلوب العصري</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسلوب العصري للمطابخ والديكور</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-bg: #0f0f0f;
+            --card-bg: #111;
+            --text-white: #ffffff;
+            --text-muted: #aaa;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+        html { scroll-behavior: smooth; }
 
-<style>
+        body {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg), #1a1a1a, #000);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
 
-html{
-scroll-behavior:smooth;
-}
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(12px);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            z-index: 1000;
+        }
+        header h1 {
+            color: var(--gold);
+            font-weight: 700;
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
 
-body{
-margin:0;
-font-family:'Cairo',sans-serif;
-background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
-color:#fff;
-}
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+        }
+        .hero h2 {
+            font-size: 36px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #ddd;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-/* HEADER */
-header{
-position:sticky;
-top:0;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-padding:15px;
-text-align:center;
-border-bottom:1px solid #333;
-}
-header h1{
-color:#d4af37;
-font-weight:700;
-}
+        /* SECTIONS */
+        section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+        .section-title {
+            text-align: center;
+            color: var(--gold);
+            margin-bottom: 40px;
+            font-size: 28px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+            margin: 10px auto;
+        }
 
-/* HERO */
-.hero{
-background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
-padding:120px 20px;
-text-align:center;
-}
-.hero h2{
-font-size:40px;
-background:rgba(0,0,0,0.6);
-display:inline-block;
-padding:10px 20px;
-border-radius:10px;
-}
+        /* GRID SYSTEM */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-/* SECTION */
-section{padding:40px 20px}
+        /* CARDS */
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+            border: 1px solid #222;
+            position: relative;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .card:hover img { transform: scale(1.1); }
+        .card h3 {
+            padding: 15px;
+            color: var(--gold);
+            margin: 0;
+            text-align: center;
+            font-size: 18px;
+        }
 
-/* GRID */
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+        /* GALLERY (MOBILE OPTIMIZED) */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 12px;
+            filter: grayscale(20%);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .gallery img:hover { filter: grayscale(0%); transform: scale(1.02); }
 
-/* CARD */
-.card{
-background:#111;
-border-radius:12px;
-overflow:hidden;
-transition:.3s;
-}
-.card:hover{transform:scale(1.05)}
-.card img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-.card h3{
-padding:10px;
-color:#d4af37;
-}
+        /* FEATURES CARD */
+        .feature-card {
+            background: #161616;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #222;
+        }
+        .feature-card span { font-size: 40px; display: block; margin-bottom: 15px; }
 
-/* GALLERY FIX */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
-.gallery img{
-width:100%;
-border-radius:10px;
-}
+        /* CONTACT & MAP */
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--gold);
+            margin-top: 20px;
+        }
+        iframe { width: 100%; border: none; }
 
-/* FEATURES */
-.features .card{
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:18px;
-gap:10px;
-}
+        /* WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25D366;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            animation: pulse-green 2s infinite;
+        }
 
-/* MAP */
-iframe{
-width:100%;
-border:none;
-border-radius:10px;
-}
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
 
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#25D366;
-color:#fff;
-padding:12px 18px;
-border-radius:50px;
-text-decoration:none;
-font-size:14px;
-animation:pulse 1.5s infinite;
-}
+        /* WELCOME BOX */
+        #welcome-box {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            left: 30px;
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            z-index: 1000;
+            max-width: 280px;
+            border-right: 6px solid var(--gold);
+        }
 
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.1)}
-100%{transform:scale(1)}
-}
+        /* RESPONSIVENESS */
+        @media (max-width: 600px) {
+            .hero h2 { font-size: 28px; }
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+            .whatsapp-float { padding: 12px 20px; font-size: 14px; bottom: 20px; left: 20px; }
+        }
 
-/* MOBILE FIX */
-@media(max-width:600px){
-.gallery{
-grid-template-columns:repeat(2,1fr);
-}
-}
-
-footer{
-text-align:center;
-padding:20px;
-background:#000;
-color:#aaa;
-}
-
-</style>
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #000;
+            color: var(--text-muted);
+            border-top: 1px solid #222;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<h1>الأسلوب العصري</h1>
-</header>
+    <header>
+        <h1>الأسلوب العصري</h1>
+    </header>
 
-<section class="hero">
-<h2>اهلاً بك في الأسلوب العصري</h2>
-<p>تصاميم أوروبية - جودة عالية - تنفيذ سريع</p>
-</section>
+    <section class="hero">
+        <h2>أهلاً بك في عالم الأناقة</h2>
+        <p>نحن في "الأسلوب العصري" نحول مساحة مطبخك إلى تحفة فنية تجمع بين الجودة الأوروبية والتصميم الحديث.</p>
+    </section>
 
-<!-- الكتالوج -->
-<section>
-<h2 style="text-align:center;color:#d4af37;">الكتالوج</h2>
+    <section id="catalog">
+        <h2 class="section-title">كتالوج الخامات</h2>
+        <div class="grid">
+            <div class="card">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1588854337221-4cf9fa96059c" alt="مطبخ داكن">
+                <h3>مطابخ HPL فاخرة</h3>
+            </div>
+            <div class="card">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1598300053653-58b8e7b61b87" alt="خشب مودرن">
+                <h3>خشب بلوط مودرن</h3>
+            </div>
+            <div class="card">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="مطبخ أبيض">
+                <h3>تصاميم أكريليك لامع</h3>
+            </div>
+        </div>
+    </section>
 
-<div class="products">
+    <section>
+        <h2 class="section-title">من مشاريعنا المنفذة</h2>
+        <div class="gallery">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0" alt="مشروع 1">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="مشروع 2">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="مشروع 3">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e" alt="مشروع 4">
+        </div>
+    </section>
 
-<div class="card">
-<img loading="lazy" src="https://images.unsplash.com/photo-1588854337221-4cf9fa96059c">
-<h3>لون داكن فاخر</h3>
-</div>
+    <section>
+        <h2 class="section-title">لماذا تختار الأسلوب العصري؟</h2>
+        <div class="grid">
+            <div class="feature-card"><span>🛠️</span><h3>خامات أوروبية</h3><p>نستخدم أجود أنواع الخشب والإكسسوارات العالمية.</p></div>
+            <div class="feature-card"><span>🎨</span><h3>تصاميم 3D</h3><p>نشاهد مطبخك قبل التنفيذ بأحدث التقنيات.</p></div>
+            <div class="feature-card"><span>⏱️</span><h3>دقة المواعيد</h3><p>نلتزم بجدول زمني صارم للتسليم والتركيب.</p></div>
+        </div>
+    </section>
 
-<div class="card">
-<img loading="lazy" src="https://images.unsplash.com/photo-1598300053653-58b8e7b61b87">
-<h3>بني مودرن</h3>
-</div>
+    <section>
+        <h2 class="section-title">تفضل بزيارة معرضنا</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.5!2d39.2!3d21.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDMwJzAwLjAiTiAzOcKwMTInMDAuMCJF!5e0!3m2!1sar!2ssa!4v1620000000000" height="350" loading="lazy"></iframe>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://maps.google.com" target="_blank" style="color: var(--gold); text-decoration: none; font-weight: bold;">📍 فتح الموقع في خرائط جوجل</a>
+        </div>
+    </section>
 
-<div class="card">
-<img loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-<h3>خشب طبيعي</h3>
-</div>
+    <footer>
+        <p>الأسلوب العصري للمطابخ والديكور</p>
+        <p style="font-size: 12px; margin-top: 10px;">جدة - مكة - عسفان | هاتف: 0540220939</p>
+        <div style="margin-top: 20px;">
+            © 2026 جميع الحقوق محفوظة
+        </div>
+    </footer>
 
-</div>
-</section>
+    <a class="whatsapp-float" href="https://wa.me/966540220939?text=السلام%20عليكم%20الأسلوب%20العصري..%20حابب%20استفسر%20عن%20المطابخ">
+        <span>💬 اطلب عرض سعر الآن</span>
+    </a>
 
-<!-- اعمال -->
-<section>
-<h2 style="text-align:center;color:#d4af37;">أعمالنا</h2>
+    <div id="welcome-box">
+        <span onclick="this.parentElement.style.display='none'" style="float:left; cursor:pointer; font-weight:bold;">×</span>
+        <h4 style="margin:0; color:var(--gold);">مهندس محمد إبراهيم يرحب بك!</h4>
+        <p style="font-size: 13px; margin: 10px 0;">هل تود الحصول على استشارة فنية لمطبخك الجديد اليوم؟</p>
+        <button onclick="window.location.href='https://wa.me/966540220939?text=محتاج استشارة فنية لمطبخي'" style="background:var(--gold); border:none; color:#000; padding:8px 15px; border-radius:5px; cursor:pointer; width:100%; font-weight:bold;">نعم، أريد استشارة</button>
+    </div>
 
-<div class="gallery">
-<img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0">
-<img loading="lazy" src="https://images.unsplash.com/photo-1600566752355-35792bedcfea">
-<img loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d">
-<img loading="lazy" src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e">
-</div>
-</section>
-
-<!-- المميزات -->
-<section class="features">
-<h2 style="text-align:center;color:#d4af37;">ليه تختارنا؟</h2>
-
-<div class="products">
-
-<div class="card">🛠 خامات أوروبية</div>
-<div class="card">🎨 تصميم عصري</div>
-<div class="card">💰 أسعار منافسة</div>
-<div class="card">⏱ تنفيذ سريع</div>
-
-</div>
-</section>
-
-<!-- ماب -->
-<section>
-<h2 style="text-align:center;color:#d4af37;">موقعنا</h2>
-
-<iframe src="https://maps.google.com/maps?q=جدة&output=embed" height="300"></iframe>
-</section>
-
-<!-- واتساب -->
-<a class="whatsapp"
-href="https://wa.me/966540220939?text=السلام%20عليكم%20الأسلوب%20العصري..%20حابب%20استفسر%20عن%20المطابخ">
-اطلب عرض سعر
-</a>
-
-<footer>
-© جميع الحقوق محفوظة - الأسلوب العصري
-</footer>
+    <script>
+        // إظهار الرسالة الترحيبية بعد 4 ثوانٍ
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('welcome-box').style.display = 'block';
+            }, 4000);
+        };
+    </script>
 
 </body>
 </html>
