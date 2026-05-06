@@ -1,68 +1,309 @@
-<section class="calc" style="background: #050505; border: 1px solid var(--border); border-radius: 15px; padding: 30px;">
-    <h2 style="color:var(--gold); text-align: center;">📐 صمم حسب ميزانيتك</h2>
-    <p style="text-align: center; color: #777; font-size: 14px;">احصل على سعر تقريبي لمطبخك في ثوانٍ</p>
-
-    <div class="grid" style="gap: 10px;">
-        <div>
-            <label style="font-size: 12px; color: var(--gold);">الطول الإجمالي (بالمتر)</label>
-            <input id="w" type="number" placeholder="مثال: 5">
-        </div>
-        <div>
-            <label style="font-size: 12px; color: var(--gold);">نوع الخشب / الخامة</label>
-            <select id="m" onchange="updateInfo()">
-                <option value="1800">صاج مطفي (اقتصادي)</option>
-                <option value="2800">HPL / أكريليك (متوسط)</option>
-                <option value="4500">خشب إيطالي / جولي (فاخر)</option>
-            </select>
-        </div>
-    </div>
-
-    <div id="material-note" style="background: #111; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 13px; color: #ccc; border-right: 3px solid var(--gold);">
-        💡 ملاحظة: السعر يشمل الإكسسوارات الأساسية والتركيب.
-    </div>
-
-    <button onclick="calc()" style="cursor: pointer; transition: 0.3s;">✨ احسب السعر التقديري</button>
-
-    <div id="result-box" style="display:none; text-align: center; margin-top: 20px; padding: 20px; background: rgba(197, 163, 103, 0.1); border-radius: 10px;">
-        <h3 id="res" style="color: var(--gold); margin: 0;"></h3>
-        <p style="font-size: 12px; color: #aaa;">هذا السعر تقريبي بناءً على المقاسات المدخلة</p>
-        <a id="send" class="btn" style="width: 80%; margin: 10px auto;">📦 أرسل المقاسات للمهندس وتأكد من السعر</a>
-    </div>
-</section>
-
-<script>
-function updateInfo() {
-    let m = document.getElementById("m").value;
-    let note = document.getElementById("material-note");
-    if(m == "1800") note.innerText = "💡 الصاج المطفي: عملي جداً، مقاوم للرطوبة وسعره منافس.";
-    if(m == "2800") note.innerText = "💡 HPL/أكريليك: يعطي لمعة وشكل عصري وسهل التنظيف.";
-    if(m == "4500") note.innerText = "💡 الفاخر: خامات إيطالية مع ضمان ممتد وتصاميم خاصة.";
-}
-
-function calc(){
-    let w = document.getElementById("w").value;
-    let m = document.getElementById("m").value;
-    let mText = document.getElementById("m").options[document.getElementById("m").selectedIndex].text;
-
-    if(!w || w <= 0){
-        alert("يرجى إدخال الطول بشكل صحيح");
-        return;
-    }
-
-    let price = w * m;
-    let resBox = document.getElementById("result-box");
-    let resText = document.getElementById("res");
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسلوب العصري - مطابخ ودريسنج (MSK)</title>
     
-    resBox.style.display = "block";
-    resText.innerText = "التكلفة التقريبية: " + price.toLocaleString() + " ريال";
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* الألوان الملكية مستوحاة من البوستر */
+            --gold: #c5a367; /* لون ذهبي مطفي فخم */
+            --dark-pure: #000000;
+            --dark-card: #0a0a0a;
+            --border: rgba(197, 163, 103, 0.3); /* حدود ذهبية خفيفة */
+        }
 
-    let msg = "مرحباً الأسلوب العصري، استخدمت حاسبة الموقع:\n" + 
-              "- الطول: " + w + " متر\n" + 
-              "- الخامة: " + mText + "\n" + 
-              "- السعر الظاهر: " + price + " ريال\n" +
-              "محتاج تأكيد السعر وتحديد موعد للمعاينة.";
+        html { scroll-behavior: smooth; }
 
-    let link = "https://wa.me/966540220939?text=" + encodeURIComponent(msg);
-    document.getElementById("send").href = link;
-}
-</script>
+        body {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--dark-pure);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+            text-align: center;
+        }
+        header .logo-text {
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .hero .msk-title {
+            font-size: 90px;
+            font-weight: 900;
+            color: var(--gold);
+            margin: 0;
+            line-height: 1;
+            opacity: 0.9;
+        }
+        .hero h2 { font-size: 36px; margin: 15px 0; font-weight: 700; }
+        .hero p { color: #888; max-width: 700px; margin: auto; font-size: 18px; }
+
+        /* SERVICES ICONS */
+        .services-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 50px 20px;
+            background: #050505;
+            border-bottom: 1px solid var(--border);
+            max-width: 1200px; margin: auto;
+        }
+        .service-item { text-align: center; }
+        .service-item span { 
+            font-size: 45px; 
+            color: var(--gold); 
+            display: block; 
+            margin-bottom: 10px; 
+        }
+        .service-item h4 { color: var(--gold); margin: 5px 0; font-size: 17px; font-weight: 700; }
+        .service-item p { font-size: 13px; color: #777; margin: 0; }
+
+        /* GALLERY SECTION */
+        section { padding: 80px 20px; max-width: 1200px; margin: auto; }
+        .section-title {
+            text-align: center;
+            color: var(--gold);
+            font-size: 32px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+        .section-title::before, .section-title::after {
+            content: ''; width: 60px; height: 1px; background: var(--gold);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARDS (Premium Style) */
+        .card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 4px; /* حواف فخمة */
+            overflow: hidden;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 25px rgba(197, 163, 103, 0.25);
+            transform: translateY(-5px);
+        }
+        .card .img-container {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+        }
+        .card img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.7s;
+            filter: brightness(0.75);
+        }
+        .card:hover img { transform: scale(1.1); filter: brightness(1); }
+        .card .info { padding: 25px; text-align: center; }
+        .card h3 { margin: 0; color: var(--gold); font-size: 19px; font-weight: 700; }
+
+        /* MAP */
+        .map-section { background: #050505; max-width: 100%; border-top: 1px solid var(--border); }
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--gold);
+            margin-top: 30px;
+        }
+        iframe { width: 100%; border: none; }
+
+        /* FOOTER & CONTACT BAR */
+        .contact-footer {
+            background: #0a0a0a;
+            border-top: 1px solid var(--border);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .location-tag {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn-wa {
+            background: var(--gold);
+            color: #000;
+            padding: 15px 50px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 2px;
+            display: inline-block;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+        .btn-wa:hover { background: #fff; transform: scale(1.05); }
+
+        /* FLOATING WHATSAPP */
+        .wa-float {
+            position: fixed; bottom: 30px; left: 30px;
+            background: #25d366; width: 60px; height: 60px;
+            border-radius: 50%; text-align: center; line-height: 60px;
+            font-size: 30px; color: white; z-index: 2000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            animation: wa-pulse 1.8s infinite;
+        }
+
+        @keyframes wa-pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* WELCOME BOX (AI) */
+        #welcome-box {
+            display: none; position: fixed; bottom: 100px; left: 30px;
+            background: #fff; color: #333; padding: 20px;
+            border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            z-index: 1000; max-width: 290px;
+            border-right: 6px solid var(--gold);
+            direction: rtl;
+        }
+
+        /* RESPONSIVENESS */
+        @media (max-width: 600px) {
+            .hero .msk-title { font-size: 60px; }
+            .hero h2 { font-size: 26px; }
+            .hero p { font-size: 16px; }
+            .products-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
+            .card .img-container { height: 180px; }
+            .card .info { padding: 15px; }
+            .card h3 { font-size: 15px; }
+            .wa-float { bottom: 20px; left: 20px; width: 50px; height: 50px; line-height: 50px; font-size: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">الأسلوب العصري</div>
+    </header>
+
+    <section class="hero">
+        <h1 class="msk-title">MSK</h1>
+        <h2>تصميم وتنفيذ المطابخ والديكور</h2>
+        <p>نُجسد الأناقة والوظيفة في مساحة بيتك - من المصنع للعميل مباشرة بأعلى معايير الجودة الأوروبية.</p>
+    </section>
+
+    <div style="background: #050505; width: 100%;">
+        <div class="services-bar">
+            <div class="service-item"><span>🍳</span><h4>مطابخ عصرية</h4><p>تصاميم حديثة (صاج/مودرن) تلبي الاحتياج</p></div>
+            <div class="service-item"><span>👔</span><h4>خزائن ملابس</h4><p>تفصيل حسب الطلب بأعلى جودة</p></div>
+            <div class="service-item"><span>🚪</span><h4>دريسنج روم</h4><p>تنظيم مثالي لراحتك وفخامة بيتك</p></div>
+            <div class="service-item"><span>📺</span><h4>ديكورات حديثة</h4><p>تضفي جمالاً لكل مساحة في منزلك</p></div>
+            <div class="service-item"><span>🏭</span><h4>أعمال صاج</h4><p>تصنيع جميع أعمال الصاج بمتانة عالية</p></div>
+        </div>
+    </div>
+
+    <section id="kitchens">
+        <h2 class="section-title">كتالوج المطابخ الواقعية</h2>
+        <div class="products-grid">
+            <div class="card">
+                <div class="img-container"><img loading="lazy" src="https://images.unsplash.com/photo-1556912170-453f2c710419" alt="مطبخ صاج"></div>
+                <div class="info"><h3>مطبخ صاج مطفي ملكي (Matte Black)</h3></div>
+            </div>
+            <div class="card">
+                <div class="img-container"><img loading="lazy" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d" alt="مطبخ رخام"></div>
+                <div class="info"><h3>مطبخ رخامي مع خشب إيطالي فاخر</h3></div>
+            </div>
+            <div class="card">
+                <div class="img-container"><img loading="lazy" src="https://images.unsplash.com/photo-1556909214-31e845b68236" alt="مطبخ أكريليك"></div>
+                <div class="info"><h3>مطبخ أكريليك لامع (استغلال مساحات)</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dressing" class="map-section">
+        <div style="max-width: 1200px; margin: auto;">
+            <h2 class="section-title">خزائن الملابس والدريسنج روم</h2>
+            <div class="products-grid">
+                <div class="card">
+                    <div class="img-container"><img loading="lazy" src="https://images.unsplash.com/photo-1595428774223-ef52624120d2" alt="دريسنج روم"></div>
+                    <div class="info"><h3>دريسنج روم مفتوح بإضاءة خلفية</h3></div>
+                </div>
+                <div class="card">
+                    <div class="img-container"><img loading="lazy" src="https://images.unsplash.com/photo-1558997519-83ec9c527c44" alt="دولاب فندقي"></div>
+                    <div class="info"><h3>دولاب ملابس (تصميم فندقي فاخر)</h3></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <h2 class="section-title">تفضل بزيارة معرضنا</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118318.525528243!2d39.14187019726563!3d21.68532980000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d00155555555%3A0x6b6c0e86b001b979!2sJeddah!5e0!3m2!1sen!2ssa!4v1716300000000!5m2!1sen!2ssa" height="400" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <div class="contact-footer">
+        <div class="location-tag">📍 جدة - عسفان | من المصنع لبيتك مباشرة</div>
+        <div style="margin-bottom: 25px; color: #aaa; font-size: 16px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            جودة تصنيع نثق بها تصلك مباشرة | أسعار تنافسية تناسب الجميع | التزام بالمواعيد في التسليم والتركيب | خدمة ما بعد البيع ودعم استشاري دائم
+        </div>
+        <a href="https://wa.me/966540220939?text=السلام%20عليكم%20الأسلوب%20العصري..%20حابب%20احصل%20على%20مقايسة%20لمطبخي" class="btn-wa">احصل على مقايسة مجانية الآن</a>
+    </div>
+
+    <footer>
+        <div style="padding: 20px; color: #555; text-align: center; font-size: 14px;">
+            © جميع الحقوق محفوظة لـ الأسلوب العصري للمطابخ والديكور (MSK) 2026 | جدة - السعودية
+        </div>
+    </footer>
+
+    <a href="https://wa.me/966540220939?text=السلام%20عليكم%20الأسلوب%20العصري..%20حابب%20استفسر" class="wa-float" target="_blank">
+        💬
+    </a>
+
+    <div id="welcome-box">
+        <span onclick="this.parentElement.style.display='none'" style="float:left; cursor:pointer; font-weight:bold; color:#888;">×</span>
+        <h4 style="margin:0; color:var(--gold);">مهندس محمد إبراهيم يرحب بك!</h4>
+        <p style="font-size: 13px; margin: 10px 0; color:#555;">هل تود الحصول على تصميم مبدئي مجاني لمطبخك الجديد اليوم؟</p>
+        <button onclick="window.location.href='https://wa.me/966540220939?text=هلا، محتاج تصميم مبدئي لمطبخي'" style="background:var(--gold); border:none; color:#000; padding:8px 15px; border-radius:5px; cursor:pointer; width:100%; font-weight:bold; font-size:14px;">نعم، أريد تصميم مجاني</button>
+    </div>
+
+    <script>
+        // إظهار الرسالة الترحيبية بعد 4 ثوانٍ
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('welcome-box').style.display = 'block';
+            }, 4000);
+        };
+    </script>
+
+</body>
+</html>
