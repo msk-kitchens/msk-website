@@ -16,7 +16,7 @@
         .hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
         .hero h1 { font-size: clamp(35px, 8vw, 70px); color: var(--primary); margin: 0; }
         
-        .btn { padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; display: inline-block; border: none; margin: 5px; cursor: pointer; }
+        .btn { padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; display: inline-block; border: none; margin: 5px; cursor: pointer; text-align: center; }
         .btn-primary { background: var(--primary); color: #000; }
         .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
         .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
@@ -24,10 +24,11 @@
         section { padding: 80px 20px; max-width: 1100px; margin: auto; }
         .title { text-align: center; color: var(--primary); margin-bottom: 40px; font-size: 30px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; text-align: center; padding: 20px; transition: 0.3s; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; text-align: center; padding: 20px; transition: 0.3s; display: flex; flex-direction: column; justify-content: center; }
         .card:hover { border-color: var(--primary); }
         .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; background: #222; }
+        .card h3 { margin-top: 0; color: var(--primary); }
 
         .wa-float { position: fixed; bottom: 20px; left: 20px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
         .wa-float img { width: 35px; }
@@ -42,7 +43,7 @@
 
     <nav>
         <a href="#work">أعمالنا</a>
-        <a href="#catalog">الكتالوج</a>
+        <a href="#catalog">المنصات والكتالوج</a>
         <a href="#map">الموقع</a>
     </nav>
 
@@ -74,20 +75,62 @@
     </section>
 
     <section id="catalog" style="text-align:center;">
-        <h2 class="title">كتالوج الأعمال والمنصات</h2>
+        <h2 class="title">تابعنا على منصاتنا</h2>
         <div class="grid">
+            <!-- الروابط الأساسية السابقة -->
             <div class="card">
                 <h3>واتساب للأعمال</h3>
                 <p>تصفح الكتالوج مباشرة</p>
                 <a href="https://wa.me/c/966540220939" target="_blank" class="btn btn-primary">فتح الكتالوج</a>
             </div>
+            
+            <!-- تحديث تيك توك -->
             <div class="card">
                 <h3>تيك توك</h3>
-                <a href="https://www.tiktok.com/@m0540220939" target="_blank" class="btn btn-outline">MSK TikTok</a>
+                <p>أحدث الفيديوهات من المصنع</p>
+                <a href="https://www.tiktok.com/@msk.jeddah?_r=1&_t=ZS-96DIjL0bKss" target="_blank" class="btn btn-outline">MSK TikTok</a>
             </div>
+
+            <!-- تحديث إنستجرام -->
             <div class="card">
                 <h3>إنستجرام</h3>
-                <a href="https://www.instagram.com/m0540220939" target="_blank" class="btn btn-outline">MSK Instagram</a>
+                <p>صور التصاميم والمشاريع</p>
+                <a href="https://www.instagram.com/msk.jeddah?igsh=MTFpeWQ3d2hxcnQ1Nw==" target="_blank" class="btn btn-outline">MSK Instagram</a>
+            </div>
+
+            <!-- إضافة يوتيوب -->
+            <div class="card">
+                <h3>يوتيوب</h3>
+                <p>تغطيات شاملة للمطابخ</p>
+                <a href="https://www.youtube.com/@%D8%A7%D9%84%D8%A3%D8%B3%D0%BB%D9%88%D8%A8%D8%A7%D9%84%D8%B9%D8%B5%D8%B1%D9%8I%D9%84%D9%84%D9%85%D8%B7%D8%A7%D8%A8%D8%AE" target="_blank" class="btn btn-outline">YouTube Channel</a>
+            </div>
+
+            <!-- إضافة سناب شات -->
+            <div class="card">
+                <h3>سناب شات</h3>
+                <p>يومياتنا في العمل</p>
+                <a href="https://www.snapchat.com/add/msk.jeddah?share_id=O6_KDJv271U&locale=ar-EG" target="_blank" class="btn btn-outline">Snapchat</a>
+            </div>
+
+            <!-- إضافة منصة X -->
+            <div class="card">
+                <h3>منصة X</h3>
+                <p>تواصل معنا رسمياً</p>
+                <a href="https://x.com/mskjeddah24" target="_blank" class="btn btn-outline">X (Twitter)</a>
+            </div>
+
+            <!-- إضافة بنترست -->
+            <div class="card">
+                <h3>بنترست</h3>
+                <p>أفكار وتصاميم ملهمة</p>
+                <a href="https://pin.it/4WyVUQ1Nf" target="_blank" class="btn btn-outline">Pinterest</a>
+            </div>
+
+            <!-- إضافة ثريدز -->
+            <div class="card">
+                <h3>ثريدز</h3>
+                <p>نقاشات حول الديكور</p>
+                <a href="https://www.threads.com/@msk.jeddah" target="_blank" class="btn btn-outline">Threads</a>
             </div>
         </div>
     </section>
